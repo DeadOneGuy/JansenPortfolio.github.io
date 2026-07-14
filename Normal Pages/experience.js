@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
        1. BUILD YEAR RULER
        Timeline spans 2013 → 2027
     ────────────────────────────────────────── */
-    const START_YEAR = 2013;
-    const END_YEAR   = 2027;
+    const START_YEAR = 2012;
+    const END_YEAR   = 2026;
     const TOTAL_YEARS = END_YEAR - START_YEAR;
 
     const yearsContainer = document.getElementById('timelineYears');

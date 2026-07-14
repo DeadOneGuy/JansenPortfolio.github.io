@@ -25,7 +25,7 @@
             <button class="menu-btn" id="menuBtn" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
-            <a href="../Normal Pages/index.html" class="logo" id="logoText">Tessa Jansen</a>
+            <a href="../Normal Pages/index.html" class="logo" id="logoText">Stijn Jansen</a>
             <a href="../Normal Pages/contact.html" class="btn-connect" id="headerCta">
                 <span class="btn-connect-text">CONNECT</span>
                 <span class="btn-connect-icon">&#8594;</span>
@@ -39,19 +39,18 @@
             <li><a href="../Normal Pages/index.html">Home</a></li>
             <li><a href="../Normal Pages/projects.html">Highlighted Work</a></li>
             <li><a href="../Normal Pages/experience.html">Experience and <br>Education</a></li>
-            <li><a href="../Normal Pages/meetme.html">Meet me</a></li>
+            <li><a href="../Normal Pages/equipment.html">Equipment</a></li>
+            <li><a href="../Normal Pages/meetme.html">Meet Me</a></li>
             <li><a href="../Normal Pages/contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="side-nav-overlay" id="sideNavOverlay"></div>
 
-    <!-- ===== HERO BANNER — fills ~50vh ===== -->
+    <!-- ===== HERO BANNER ===== -->
     <section class="detail-hero">
-        <!-- Placeholder background image via picsum -->
         <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
             alt="Studio Bocavista" class="detail-hero-bg" loading="eager">
         <div class="detail-hero-overlay"></div>
-
         <div class="detail-hero-content container-wide">
             <div class="detail-hero-breadcrumb">
                 <a href="../Normal Pages/experience.html">Experience</a>
@@ -61,8 +60,7 @@
             <p class="detail-hero-label">INTERNSHIP · 2026</p>
             <h1 class="detail-hero-title">Studio <em>Bocavista</em></h1>
             <p class="detail-hero-subtitle">Vianen, The Netherlands</p>
-            <a href="https://www.studiobocavista.nl" target="_blank" rel="noopener noreferrer" class="detail-hero-btn"
-                id="studioLink">
+            <a href="https://www.studiobocavista.nl" target="_blank" rel="noopener noreferrer" class="detail-hero-btn">
                 Visit Studio Website &#8594;
             </a>
         </div>
@@ -72,8 +70,6 @@
     <section class="detail-about-section">
         <div class="container-wide">
             <div class="detail-about-layout">
-
-                <!-- Left: Description -->
                 <div class="detail-about-text">
                     <p class="detail-section-label">ABOUT THE INTERNSHIP</p>
                     <h2 class="detail-about-title">Six months inside a <em>creative</em> studio</h2>
@@ -103,8 +99,6 @@
                         <span>Client Work</span>
                     </div>
                 </div>
-
-                <!-- Right: Photo -->
                 <div class="detail-about-photo-col">
                     <div class="detail-about-photo-wrapper">
                         <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -112,7 +106,6 @@
                         <div class="detail-about-photo-caption">Working on a project at Studio Bocavista, 2026</div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -131,6 +124,9 @@
                 <!-- Sfeerimpressie Aardgas bijeenkomst -->
                 <a href="Sfeerimpressie Aardgas bijeenkomst/SfeerimpressieAardgasBijeenkomst.html" class="exp-card">
                     <div class="exp-card-accent work"></div>
+                    <!-- Video (autoplay, muted, loop – visible only on hover) -->
+                    <video class="card-video" src="Sfeerimpressie Aardgas bijeenkomst/HqM6daejPRZ_576.mp4" autoplay
+                        muted loop playsinline></video>
                     <div class="exp-card-inner">
                         <div class="exp-card-header">
                             <div>
@@ -157,6 +153,7 @@
                 <!-- Socials Trimetal -->
                 <a href="Socials Trimetal/SocialsTrimetal.html" class="exp-card">
                     <div class="exp-card-accent work"></div>
+                    <video class="card-video" src="Socials Trimetal/s1.mp4" autoplay muted loop playsinline></video>
                     <div class="exp-card-inner">
                         <div class="exp-card-header">
                             <div>
@@ -184,6 +181,7 @@
                 <!-- Animatie Subsidies -->
                 <a href="Animatie Subsidies/AnimatieSubsidies.html" class="exp-card">
                     <div class="exp-card-accent work"></div>
+                    <video class="card-video" src="Animatie Subsidies/v1.mp4" autoplay muted loop playsinline></video>
                     <div class="exp-card-inner">
                         <div class="exp-card-header">
                             <div>
@@ -224,7 +222,14 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer" id="contact">
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> <span id="footerLogo">Tessa Jansen</span>. All rights reserved.</p>
+            <p>&copy; <span id="currentYear"></span> <span id="footerLogo">Stijn Jansen</span>. All rights reserved.</p>
+            <a href="stage-bocavista-nl.html" class="footer-flag-link" aria-label="Nederlandse versie">
+                <svg class="flag-icon" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="5.33" fill="#AE1C28" />
+                    <rect y="5.33" width="24" height="5.33" fill="#FFFFFF" />
+                    <rect y="10.66" width="24" height="5.34" fill="#21468B" />
+                </svg>
+            </a>
         </div>
     </footer>
 

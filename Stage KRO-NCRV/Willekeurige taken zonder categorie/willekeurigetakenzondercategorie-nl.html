@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random edits · Videocollectie | Tess Jansen</title>
+    <meta name="description"
+        content="Een selectie van videobewerkingen gemaakt door Tess Jansen tijdens haar stage. Ruw materiaal omgezet in boeiende clips." />
+    <link rel="icon" type="image/x-icon" href="../../Normal Pages/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../Normal Pages/styles.css" />
+    <style>
+        /* Aangepaste stijlen voor verticale telefoonvideo's */
+        .phone-video-container {
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            border-radius: 24px;
+            border: 8px solid var(--text-primary);
+            box-shadow: 0 20px 50px rgba(30, 51, 45, 0.22);
+            background-color: #000;
+            overflow: hidden;
+            aspect-ratio: 576 / 1024;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .phone-video-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 60px rgba(30, 51, 45, 0.3);
+        }
+
+        .phone-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .phone-grid-section {
+            padding: 40px 0 100px;
+            background-color: var(--bg-color);
+        }
+
+        .phone-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .phone-grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .phone-grid-caption {
+            margin-top: 14px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* Aanpassingen voor detailpagina */
+        .detail-about-photo-col.phone-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 100px;
+        }
+
+        @media (max-width: 1300px) {
+            .phone-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .phone-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .detail-about-photo-col.phone-col {
+                position: static;
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .phone-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-experience">
+
+    <!-- Header -->
+    <header class="header page-header">
+        <div class="container-wide"
+            style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <button class="menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index-nl.html" class="logo" id="logoText">Stijn Jansen</a>
+            <a href="contact-nl.html" class="btn-connect" id="headerCta">
+                <span class="btn-connect-text">CONTACT</span>
+                <span class="btn-connect-icon">&#8594;</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Zij-navigatie -->
+    <nav class="side-nav" id="sideNav">
+        <ul>
+            <li><a href="../../Normal Pages/index-nl.html">Home</a></li>
+            <li><a href="../../Normal Pages/projects-nl.html">Uitgelicht Werk</a></li>
+            <li><a href="../../Normal Pages/experience-nl.html">Ervaring en <br />Opleiding</a></li>
+            <li><a href="../../Normal Pages/equipment-nl.html">Apparatuur</a></li>
+            <li><a href="../../Normal Pages/meetme-nl.html">Ontmoet Mij</a></li>
+            <li><a href="../../Normal Pages/contact-nl.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="side-nav-overlay" id="sideNavOverlay"></div>
+
+    <!-- === PAGINA HERO === -->
+    <section class="exp-page-hero" style="margin-top: -30px;">
+        <div class="container-wide">
+            <div class="detail-hero-breadcrumb" style="margin-bottom: 14px;">
+                <a href="../../Normal Pages/experience-nl.html">Ervaring</a>
+                <span style="margin: 0 8px; opacity: 0.6;">&#8594;</span>
+                <a href="../../Bocavista/stage-bocavista-nl.html">Studio Bocavista</a>
+                <span style="margin: 0 8px; opacity: 0.6;">&#8594;</span>
+                <span style="opacity: 0.6;">Random edits</span>
+            </div>
+            <p class="meetme-label">STUDIO BOCAVISTA · STAGE</p>
+            <h1 class="exp-page-title">Random <em>edits</em></h1>
+            <p class="exp-page-subtitle">Overige videowerk · 2025</p>
+        </div>
+    </section>
+
+    <!-- ===== OVER DIT PROJECT ===== -->
+    <section class="detail-about-section">
+        <div class="container-wide">
+            <div class="detail-about-layout">
+
+                <!-- Links: beschrijving -->
+                <div class="detail-about-text">
+                    <p class="detail-section-label">OVER DIT WERK</p>
+                    <h2 class="detail-about-title">Overige opdrachten <em>zonder categorie</em></h2>
+                    <p class="detail-about-body">
+                        Alle getoonde video's zijn door mij gemonteerd met de aangeleverde beelden.
+                        Geen briefing, geen specifieke stijl — alleen ruw materiaal dat moest worden
+                        omgevormd tot iets boeiends en gepolijsts.
+                    </p>
+                    <p class="detail-about-body">
+                        Deze clips vertegenwoordigen de grote verscheidenheid aan werk die ik tijdens mijn
+                        stage heb gedaan: van snelle socialmedia-cuts tot langere verhalende stukken. Elk
+                        project bracht zijn eigen uitdaging met zich mee, of het nu ging om ritme, kleurcorrectie
+                        of het vinden van de juiste montagesnelheid.
+                    </p>
+                    <p class="detail-about-body">
+                        Deze collectie is een bewijs van mijn aanpassingsvermogen als editor — ik kan elk
+                        beeldmateriaal omzetten in een meeslepend verhaal, ongeacht het genre of het beoogde
+                        platform.
+                    </p>
+                    <div class="detail-about-tags">
+                        <span>Videobewerking</span>
+                        <span>Storytelling</span>
+                        <span>Kleurgrading</span>
+                        <span>DaVinci Resolve</span>
+                        <span>Premiere Pro</span>
+                        <span>Aanpassingsvermogen</span>
+                    </div>
+                </div>
+
+                <!-- Rechts: video (v1.mp4) in telefoonformaat -->
+                <div class="detail-about-photo-col phone-col">
+                    <div class="phone-video-container">
+                        <video class="phone-video" autoplay loop muted playsinline controls>
+                            <source src="v1.mp4" type="video/mp4" />
+                            Je browser ondersteunt de video-tag niet.
+                        </video>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SCHEIDINGSLIJN ===== -->
+    <div class="detail-divider"></div>
+
+    <!-- === MEDIA GALERIJ === -->
+    <section class="phone-grid-section">
+        <div class="container-wide">
+            <p class="media-section-label">MEER BEWERKINGEN</p>
+            <h2 class="section-heading-large" style="margin-bottom: 20px;">Uit het archief</h2>
+
+            <div class="phone-grid">
+                <!-- Video 2 -->
+                <div class="phone-grid-item">
+                    <div class="phone-video-container">
+                        <video class="phone-video" loop muted playsinline controls>
+                            <source src="v2.mp4" type="video/mp4" />
+                            Je browser ondersteunt de video-tag niet.
+                        </video>
+                    </div>
+                    <p class="phone-grid-caption">Clip 02</p>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="phone-grid-item">
+                    <div class="phone-video-container">
+                        <video class="phone-video" loop muted playsinline controls>
+                            <source src="v3.mp4" type="video/mp4" />
+                            Je browser ondersteunt de video-tag niet.
+                        </video>
+                    </div>
+                    <p class="phone-grid-caption">Clip 03</p>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="phone-grid-item">
+                    <div class="phone-video-container">
+                        <video class="phone-video" loop muted playsinline controls>
+                            <source src="v4.mp4" type="video/mp4" />
+                            Je browser ondersteunt de video-tag niet.
+                        </video>
+                    </div>
+                    <p class="phone-grid-caption">Clip 04</p>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="phone-grid-item">
+                    <div class="phone-video-container">
+                        <video class="phone-video" loop muted playsinline controls>
+                            <source src="v5.mp4" type="video/mp4" />
+                            Je browser ondersteunt de video-tag niet.
+                        </video>
+                    </div>
+                    <p class="phone-grid-caption">Clip 05</p>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="phone-grid-item">
+                    <div class="phone-video-container">
+                        <video class="phone-video" loop muted playsinline controls>
+                            <source src="v6.mp4" type="video/mp4" />
+                            Je browser ondersteunt de video-tag niet.
+                        </video>
+                    </div>
+                    <p class="phone-grid-caption">Clip 06</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== TERUGLINK ===== -->
+    <section class="detail-back-section" style="padding-top: 0;">
+        <div class="container-wide">
+            <a href="../../Stage KRO-NCRV/stage-kroncrv-nl.html" class="detail-back-btn">
+                &#8592; Terug naar KRO-NCRV
+            </a>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> <span id="footerLogo">Stijn Jansen</span>. All rights reserved.</p>
+            <a href="willekeurigetakenzondercategorie.html" class="footer-flag-link" aria-label="English version">
+                <svg class="flag-icon" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Union Jack -->
+                    <rect width="24" height="16" fill="#012169" />
+                    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="3.2" />
+                    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#C8102E" stroke-width="1.6" />
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#FFFFFF" stroke-width="3.2" />
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#C8102E" stroke-width="1.6" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="../../Normal Pages/script.js"></script>
+    <script>
+        // Eenvoudig script om het jaar bij te werken
+        document.getElementById('currentYear').innerText = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ervaring | Stijn Jansen</title>
+    <meta name="description"
+        content="Het professionele tijdlijn van Stijn Jansen — een carrière in kaart gebracht langs filmstudio's, bureaus en creatieve instellingen.">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page-experience">
+
+    <!-- Header -->
+    <header class="header page-header">
+        <div class="container-wide"
+            style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <button class="menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index-nl.html" class="logo" id="logoText">Stijn Jansen</a>
+            <a href="contact-nl.html" class="btn-connect" id="headerCta">
+                <span class="btn-connect-text">CONTACT</span>
+                <span class="btn-connect-icon">&#8594;</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Zijmenu -->
+    <nav class="side-nav" id="sideNav">
+            <ul>
+                <li><a href="index-nl.html">Home</a></li>
+                <li><a href="projects-nl.html">Uitgelicht werk</a></li>
+                <li><a href="experience-nl.html">Ervaring en <br>Opleiding</a></li>
+                <li><a href="equipment-nl.html">Apparatuur</a></li>
+                <li><a href="meetme-nl.html">Over mij</a></li>
+                <li><a href="contact-nl.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="side-nav-overlay" id="sideNavOverlay"></div>
+
+    <!-- === PAGINA HERO === -->
+    <section class="exp-page-hero" style="margin-top: -30px;">
+        <div class="container-wide">
+            <p class="meetme-label">CARRIÈRE</p>
+            <h1 class="exp-page-title">Ervaring &amp; <em>Opleiding</em></h1>
+            <p class="exp-page-subtitle">Beeld voor beeld een carrière opbouwen — van stages tot onafhankelijke projecten.
+            </p>
+        </div>
+    </section>
+
+    <!-- === TIJDLIJN SECTIE === -->
+    <section class="timeline-section">
+        <div class="container-wide">
+
+            <!-- Tijdlijn Header -->
+            <div class="timeline-header">
+                <!-- Legenda -->
+                <div class="timeline-legend" aria-label="Tijdlijn legenda">
+                    <div class="timeline-legend-item">
+                        <span class="legend-dot work"></span>
+                        <span>Werkervaring</span>
+                    </div>
+                    <div class="timeline-legend-item">
+                        <span class="legend-dot education"></span>
+                        <span>Opleiding</span>
+                    </div>
+                </div>
+                <!-- Toggle-knop -->
+                <button id="toggleTimelineBtn" class="timeline-toggle-btn" aria-expanded="true" aria-controls="timelineCollapsible">
+                    <span>Tijdlijn verbergen</span>
+                    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Inklapbare wrapper -->
+            <div id="timelineCollapsible" class="timeline-collapsible-wrapper">
+                <!-- Tijdlijn Liniaal -->
+                <div class="timeline-ruler" id="timelineRuler" aria-label="Carrière tijdlijn">
+                <!-- Jaarmarkers worden gerenderd door JS -->
+                <div class="timeline-ruler-years" id="timelineYears"></div>
+
+                <!-- Track: Werk -->
+                <div class="timeline-track" aria-label="Werk track">
+                    <div class="timeline-track-label">
+                        WERK
+                    </div>
+                    <div class="timeline-track-lane" id="workLane">
+                        <!-- Werkblok: KRO-NCRV -->
+                        <div class="tl-block work" style="--tl-start: 11; --tl-span: 1;" data-id="kro" role="button"
+                            tabindex="0" aria-label="KRO-NCRV – Redactiestagiair 2025–2026">
+                            <span class="tl-block-label">KRO-NCRV</span>
+                            <span class="tl-block-year">2025 – 2026</span>
+                        </div>
+                        <!-- Werkblokken: Studio Bocavista -->
+                        <div class="tl-block work" style="--tl-start: 12; --tl-span: 3;" data-id="bocavista"
+                            role="button" tabindex="0" aria-label="Studio Bocavista – Postproductie Stagiair 2026">
+                            <span class="tl-block-label">Studio Bocavista</span>
+                            <span class="tl-block-year">2026 - Nu</span>
+                        </div>
+                        <!-- Werkblok: Persoonlijk werk -->
+                        <div class="tl-block work" style="--tl-start: 7; --tl-span: 7;" data-id="personal" role="button"
+                            tabindex="0" aria-label="Persoonlijke projecten – Onafhankelijk redacteur 2020–heden">
+                            <span class="tl-block-label">Persoonlijk werk</span>
+                            <span class="tl-block-year">2020 – Nu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track: Opleiding -->
+                <div class="timeline-track" aria-label="Opleiding track">
+                    <div class="timeline-track-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                        </svg>
+                        OPLEIDING
+                    </div>
+                    <div class="timeline-track-lane" id="educationLane">
+                        <!-- Opleidingsblokken -->
+                        <div class="tl-block education" style="--tl-start: 11; --tl-span: 2;" data-id="dtm"
+                            role="button" tabindex="0"
+                            aria-label="Associate degree Digitale Technologie & Media 2024–2026">
+                            <span class="tl-block-label">Digital Tech & Media</span>
+                            <span class="tl-block-year">2024 – 2026</span>
+                        </div>
+                        <div class="tl-block education" style="--tl-start: 6; --tl-span: 4;" data-id="software-dev"
+                            role="button" tabindex="0" aria-label="Softwareontwikkeling 2019–2023">
+                            <span class="tl-block-label">Software Dev.</span>
+                            <span class="tl-block-year">2019 – 2023</span>
+                        </div>
+                        <div class="tl-block education" style="--tl-start: 0; --tl-span: 5;" data-id="havo"
+                            role="button" tabindex="0" aria-label="HAVO 2013–2018">
+                            <span class="tl-block-label">HAVO</span>
+                            <span class="tl-block-year">2013 – 2018</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Afspeelkop -->
+                <div class="timeline-playhead" id="timelinePlayhead">
+                    <div class="playhead-line"></div>
+                    <div class="playhead-head"></div>
+                </div>
+            </div>
+
+            <p class="timeline-scroll-hint">← Sleep of scroll om de tijdlijn te verkennen →</p>
+            </div> <!-- Einde van timelineCollapsible -->
+        </div>
+    </section>
+
+    <!-- === KAARTEN SECTIE === -->
+    <section class="exp-cards-section">
+        <div class="container-wide">
+            <h2 class="section-heading-large" style="margin-bottom: 20px;">Rollen &amp; <em>Posities</em></h2><br>
+            <p class="exp-cards-intro">Klik op een kaart om elke rol in detail te bekijken.</p>
+
+            <!-- Werkervaring Kaarten -->
+            <div class="exp-category-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                </svg>
+                Werkervaring
+            </div>
+            <div class="exp-cards-grid">
+
+                <!-- Studio Bocavista -->
+                <a href="../Bocavista/stage-bocavista-nl.html" class="exp-card" id="card-bocavista" data-id="bocavista">
+                    <div class="exp-card-accent work"></div>
+                    <div class="exp-card-inner">
+                        <div class="exp-card-header">
+                            <div>
+                                <p class="exp-card-years">feb 2026 – jun 2026</p>
+                                <h3 class="exp-card-role">Postproductie Stagiair</h3>
+                                <p class="exp-card-company">Studio Bocavista</p>
+                            </div>
+                            <div class="exp-card-badge work">WERK</div>
+                        </div>
+                        <p class="exp-card-desc">Toepassing van DaVinci Resolve en After Effects in een professionele
+                            omgeving. Praktijkervaring opgedaan in kleurgrading, motion graphics en workflow-efficiëntie voor commerciële projecten.</p>
+                        <ul class="exp-card-tags">
+                            <li>DaVinci Resolve</li>
+                            <li>After Effects</li>
+                            <li>Kleurgrading</li>
+                            <li>Motion Graphics</li>
+                        </ul>
+                        <div class="exp-card-cta">
+                            Rol verkennen <span class="arrow">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- KRO-NCRV -->
+                <a href="../Stage KRO-NCRV/stage-kroncrv-nl.html" class="exp-card" id="card-kro" data-id="kro">
+                    <div class="exp-card-accent work"></div>
+                    <div class="exp-card-inner">
+                        <div class="exp-card-header">
+                            <div>
+                                <p class="exp-card-years">sep 2025 – jan 2026</p>
+                                <h3 class="exp-card-role">Redactiestagiair</h3>
+                                <p class="exp-card-company">KRO-NCRV</p>
+                            </div>
+                            <div class="exp-card-badge work">WERK</div>
+                        </div>
+                        <p class="exp-card-desc">Gewerkt aan uitzendcontent met Adobe Premiere Pro, Photoshop en
+                            After Effects. Inzicht gekregen in de snelle productieomgeving van een grote Nederlandse omroep.</p>
+                        <ul class="exp-card-tags">
+                            <li>Premiere Pro</li>
+                            <li>Photoshop</li>
+                            <li>After Effects</li>
+                            <li>Uitzendingen</li>
+                        </ul>
+                        <div class="exp-card-cta">
+                            Rol verkennen <span class="arrow">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Persoonlijk werk -->
+                <a href="../Personal Work/personal-work-nl.html" class="exp-card" id="card-personal" data-id="personal">
+                    <div class="exp-card-accent work"></div>
+                    <div class="exp-card-inner">
+                        <div class="exp-card-header">
+                            <div>
+                                <p class="exp-card-years">2020 – heden</p>
+                                <h3 class="exp-card-role">Onafhankelijk Redacteur &amp; Creator</h3>
+                                <p class="exp-card-company">Persoonlijke projecten</p>
+                            </div>
+                            <div class="exp-card-badge work">WERK</div>
+                        </div>
+                        <p class="exp-card-desc">Zelfstandig DaVinci Resolve Fusion aangeleerd voor YouTube en persoonlijke creatieve
+                            projecten. Voortdurend experimenteren met nieuwe technieken en verhaalvormen.</p>
+                        <ul class="exp-card-tags">
+                            <li>DaVinci Resolve</li>
+                            <li>Fusion</li>
+                            <li>YouTube</li>
+                            <li>Creatief experiment</li>
+                        </ul>
+                        <div class="exp-card-cta">
+                            Rol verkennen <span class="arrow">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Opleidingskaarten -->
+            <div class="exp-category-title" style="margin-top: 60px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+                Opleiding
+            </div>
+            <div class="exp-cards-grid">
+
+                <!-- Digitale Techniek en Media (DTM) -->
+                <a href="../Schoolwork/school-work-nl.html" class="exp-card" id="card-dtm" data-id="dtm">
+                    <div class="exp-card-accent education"></div>
+                    <div class="exp-card-inner">
+                        <div class="exp-card-header">
+                            <div>
+                                <p class="exp-card-years">sep 2024 – jul 2026</p>
+                                <h3 class="exp-card-role">Associate degree – Digitale Technologie &amp; Media</h3>
+                                <p class="exp-card-company">Hogeschool Utrecht, Amersfoort</p>
+                            </div>
+                            <div class="exp-card-badge education">OPL</div>
+                        </div>
+                        <p class="exp-card-desc">Gericht op digitale mediaproductie, videobewerking en creatieve
+                            technologie. Theoretische kennis gecombineerd met praktijkprojecten in een professionele media-omgeving.</p>
+                        <ul class="exp-card-tags">
+                            <li>Digitale media</li>
+                            <li>Videoproductie</li>
+                            <li>Creatieve technologie</li>
+                        </ul>
+                        <div class="exp-card-cta">
+                            Meer info <span class="arrow">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Software Development (HAN) -->
+                <a href="https://www.han.nl/" target="_blank" class="exp-card" id="card-software-dev"
+                    data-id="software-dev">
+                    <div class="exp-card-accent education"></div>
+                    <div class="exp-card-inner">
+                        <div class="exp-card-header">
+                            <div>
+                                <p class="exp-card-years">sep 2019 – sep 2023</p>
+                                <h3 class="exp-card-role">Softwareontwikkeling</h3>
+                                <p class="exp-card-company">Hogeschool Arnhem Nijmegen, Arnhem</p>
+                            </div>
+                            <div class="exp-card-badge education">OPL</div>
+                        </div>
+                        <p class="exp-card-desc">Bestudeerde software-engineeringprincipes, programmeren en systeemontwerp.
+                            Ontwikkelde een sterke technische basis die creatief mediawerk aanvult.</p>
+                        <ul class="exp-card-tags">
+                            <li>Programmeren</li>
+                            <li>Systeemontwerp</li>
+                            <li>Software-engineering</li>
+                        </ul>
+                        <div class="exp-card-cta">
+                            Bezoek school <span class="arrow">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- HAVO -->
+                <a href="https://www.marnixcollege.nl/" target="_blank" class="exp-card" id="card-havo" data-id="havo">
+                    <div class="exp-card-accent education"></div>
+                    <div class="exp-card-inner">
+                        <div class="exp-card-header">
+                            <div>
+                                <p class="exp-card-years">sep 2013 – jul 2018</p>
+                                <h3 class="exp-card-role">HAVO (hoger algemeen voortgezet onderwijs)</h3>
+                                <p class="exp-card-company">Marnix College, Ede</p>
+                            </div>
+                            <div class="exp-card-badge education">OPL</div>
+                        </div>
+                        <p class="exp-card-desc">Afgeronde middelbare school met een focus op natuur en techniek,
+                            waarmee de basis werd gelegd voor verdere studies in softwareontwikkeling en digitale media.</p>
+                        <ul class="exp-card-tags">
+                            <li>Middelbaar onderwijs</li>
+                            <li>Natuur &amp; Techniek</li>
+                        </ul>
+                        <div class="exp-card-cta">
+                            Bezoek school <span class="arrow">&#8594;</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> <span id="footerLogo">Stijn Jansen</span>. All rights reserved.</p>
+            <a href="experience.html" class="footer-flag-link" aria-label="English version">
+                <svg class="flag-icon" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Union Jack -->
+                    <rect width="24" height="16" fill="#012169" />
+                    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="3.2" />
+                    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#C8102E" stroke-width="1.6" />
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#FFFFFF" stroke-width="3.2" />
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#C8102E" stroke-width="1.6" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="experience.js"></script>
+</body>
+
+</html>
