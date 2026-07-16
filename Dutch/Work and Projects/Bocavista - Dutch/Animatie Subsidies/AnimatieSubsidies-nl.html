@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemeente Den Haag · Motion Graphics | Tess Jansen</title>
+    <meta name="description"
+        content="Animation project for the Municipality of The Hague. After Effects, audio editing, keyframing & subtitling by Tess Jansen." />
+    <link rel="icon" type="image/x-icon" href="../../../../Resources/indexIcon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../../../Styles and Scripts/Styles/styles.css" />
+    <style>
+        
+        .phone-video-container {
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            border-radius: 24px;
+            border: 8px solid var(--text-primary);
+            box-shadow: 0 20px 50px rgba(30, 51, 45, 0.22);
+            background-color: #000;
+            overflow: hidden;
+            aspect-ratio: 576/1024;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .phone-video-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 60px rgba(30, 51, 45, 0.3);
+        }
+
+        .phone-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .phone-grid-section {
+            padding: 40px 0 100px;
+            background-color: var(--bg-color);
+        }
+
+        .phone-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .phone-grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .phone-grid-caption {
+            margin-top: 14px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .detail-about-photo-col.phone-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 100px;
+        }
+
+        @media (max-width: 1300px) {
+            .phone-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .phone-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .detail-about-photo-col.phone-col {
+                position: static;
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .phone-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-experience">
+
+    
+    <header class="header page-header">
+        <div class="container-wide"
+            style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <button class="menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="../../../Main Pages/index-nl.html" class="logo" id="logoText">Stijn Jansen</a>
+            <a href="../../../Main Pages/contact-nl.html" class="btn-connect" id="headerCta">
+                <span class="btn-connect-text">CONNECT</span>
+                <span class="btn-connect-icon">&#8594;</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="side-nav" id="sideNav">
+        <ul>
+            <li><a href="../../../Main Pages/index-nl.html">Home</a></li>
+            <li><a href="../../../Main Pages/projects-nl.html">Highlighted Work</a></li>
+            <li><a href="../../../Main Pages/experience-nl.html">Experience and <br>Education</a></li>
+            <li><a href="../../../Main Pages/equipment-nl.html">Equipment</a></li>
+            <li><a href="../../../Main Pages/meetme-nl.html">Meet Me</a></li>
+            <li><a href="../../../Main Pages/contact-nl.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="side-nav-overlay" id="sideNavOverlay"></div>
+
+    
+    <section class="exp-page-hero" style="margin-top: -30px;">
+        <div class="container-wide">
+            <div class="detail-hero-breadcrumb" style="margin-bottom: 14px;">
+                <a href="../../../Main Pages/experience-nl.html">Experience</a>
+                <span style="margin: 0 8px; opacity: 0.6;">&#8594;</span>
+                <a href="../stage-bocavista-nl.html">Studio Bocavista</a>
+                <span style="margin: 0 8px; opacity: 0.6;">&#8594;</span>
+                <span style="opacity: 0.6;">Gemeente Den Haag</span>
+            </div>
+            <p class="meetme-label">STUDIO BOCAVISTA · INTERNSHIP</p>
+            <h1 class="exp-page-title">Gemeente Den Haag <em>Motion</em></h1>
+            <p class="exp-page-subtitle">After Effects animation · 2021</p>
+        </div>
+    </section>
+
+    
+    <section class="detail-about-section">
+        <div class="container-wide">
+            <div class="detail-about-layout">
+
+                
+                <div class="detail-about-text">
+                    <p class="detail-section-label">ABOUT THIS WORK</p>
+                    <h2 class="detail-about-title">Animation for the <em>Municipality of The Hague</em></h2>
+                    <p class="detail-about-body">
+                        During my internship, I was asked to create an animation for the Municipality of The Hague in
+                        After Effects. I received Adobe Illustrator files and raw audio to work with.
+                    </p>
+                    <p class="detail-about-body">
+                        <strong>My tasks included:</strong>
+                        <br />– Editing the audio
+                        <br />– Keyframing scenes
+                        <br />– Adding subtitles
+                    </p>
+                    <p class="detail-about-body">
+                        The final video was uploaded to the official <a
+                            href="https://www.youtube.com/watch?v=u56d6cFaSGs"
+                            style="text-decoration: underline;">YouTube</a> channel of the Municipality
+                        of The Hague.
+                    </p>
+                    <div class="detail-about-tags">
+                        <span>After Effects</span>
+                        <span>Audio Editing</span>
+                        <span>Keyframing</span>
+                        <span>Subtitling</span>
+                        <span>Illustrator integration</span>
+                        <span>Motion Graphics</span>
+                    </div>
+                </div>
+
+                
+                <div class="detail-about-photo-col phone-col">
+                    <div class="phone-video-container">
+                        <video class="phone-video" autoplay loop muted playsinline controls>
+                            <source src="../../../../Resources/Animatie.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <div class="detail-divider"></div>
+
+
+    
+    <section class="detail-back-section" style="padding-top: 0;">
+        <div class="container-wide">
+            <a href="../stage-bocavista-nl.html" class="detail-back-btn">
+                &#8592; Back to Studio Bocavista
+            </a>
+        </div>
+    </section>
+    
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> <span id="footerLogo">Stijn Jansen</span>. All rights reserved.</p>
+            <a href="../../../../English/Work and Projects/Bocavista - Dutch/Animatie Subsidies/AnimatieSubsidies.html" class="footer-flag-link" aria-label="Nederlandse versie">
+                <svg class="flag-icon" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="16" fill="#012169" />
+        <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="1.5" />
+        <path d="M0 8 L24 8 M12 0 L12 16" stroke="#FFFFFF" stroke-width="3" />
+        <path d="M0 8 L24 8 M12 0 L12 16" stroke="#C8102E" stroke-width="1" />
+    </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="../../../../Styles and Scripts/Scripts/script.js"></script>
+    <script>
+        document.getElementById('currentYear').innerText = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
