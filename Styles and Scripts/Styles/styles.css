@@ -42,6 +42,12 @@ body {
     padding: 0 40px;
 }
 
+.container-wide-projects-grid {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
 h1,
 h2,
 h3,
@@ -641,6 +647,7 @@ a {
     color: var(--text-secondary);
     line-height: 1.5;
 }
+
 .footer {
     padding: 40px 0;
     text-align: center;
@@ -679,6 +686,7 @@ a {
     border-radius: 2px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
+
 @media (max-width: 1024px) {
     .hero-left {
         max-width: 80vw;
@@ -743,142 +751,166 @@ a {
     border-bottom: none;
 }
 
-.projects-showcase-section {
-    padding: 100px 0 120px;
+/* ===== LIBRARY-STYLE PROJECTS SECTION ===== */
+.projects-library-section {
+    padding: 80px 0 120px;
     background-color: var(--bg-color);
 }
 
-.page-title {
-    margin-bottom: 80px;
+/* Four columns, full width, separated by thin vertical lines */
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    /* no gap – we use the columns’ own padding */
 }
 
-.projects-list {
+.library-column {
+    padding: 0 24px;
+    border-right: 1px solid rgba(30, 51, 45, 0.12);
+    /* restored vertical divider */
     display: flex;
     flex-direction: column;
-    gap: 80px;
 }
 
-.project-showcase-item {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    cursor: pointer;
-    transition: var(--transition);
+.library-column:last-child {
+    border-right: none;
 }
 
-.project-showcase-item:hover {
-    transform: translateY(-5px);
-}
-
-.project-showcase-item:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.project-showcase-video {
-    flex: 1;
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-    background-color: #000;
-}
-
-.project-showcase-video::before {
-    content: "";
-    display: block;
-    padding-top: 56.25%;
-}
-
-.project-showcase-video video,
-.project-showcase-video img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project-showcase-item:hover .project-showcase-video img,
-.project-showcase-item:hover .project-showcase-video video {
-    transform: scale(1.05);
-}
-
-.project-showcase-item:hover .play-button {
-    transform: translate(-50%, -50%) scale(1.1);
-    background-color: var(--btn-color);
-}
-
-.project-showcase-item:hover .play-button::after {
-    border-left-color: white;
-}
-
-.project-showcase-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.project-showcase-title {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
+/* Column header (workplace) – NO underline */
+.library-column-header {
+    font-size: 11px;
     font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--text-primary);
-}
-
-.project-showcase-role {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--btn-color);
-    margin-bottom: 20px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.project-showcase-desc {
-    font-size: 16px;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+    text-align: left;
+    /* or center, as you prefer */
 }
 
-.btn-view-project {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-primary);
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: var(--transition);
-    align-self: flex-start;
+.library-column-header a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.25s ease;
 }
 
-.btn-view-project:hover {
+.library-column-header a:hover {
     color: var(--btn-color);
 }
 
-.btn-view-project .arrow {
-    transition: transform 0.3s ease;
+/* Stacked book spines (now horizontal, thin bars) */
+.library-books {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    /* space between books */
+    flex: 1;
 }
 
-.btn-view-project:hover .arrow {
-    transform: translateX(5px);
+/* Each book – a thin horizontal rectangle */
+.book-spine {
+    width: 100%;
+    /* fill the column width */
+    height: 70px;
+    /* thin – like a book spine seen from the side */
+    background: #ffffff;
+    border-radius: 3px;
+    box-shadow: 2px 2px 10px rgba(30, 51, 45, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* center text vertically */
+    align-items: center;
+    gap: 16px;
+    /* align text to the left (or center if you like) */
+    padding: 8px 14px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    /* optional spine accent – can be removed */
+    text-decoration: none;
+    color: inherit;
 }
 
+/* Hover – only the current book slides left */
+.book-spine:hover {
+    background: var(--btn-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.book-spine:hover .spine-title,
+.book-spine:hover .spine-place {
+    color: #fff;
+}
+
+/* Project title – wrapped inside the thin bar */
+.spine-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    color: var(--text-primary);
+    text-decoration: none;
+    max-width: 100%;
+    margin-bottom: 2px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    flex: 1;
+}
+
+.spine-title:hover {
+    color: var(--btn-color);
+}
+
+/* Workplace name (clickable) */
+.spine-place {
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.spine-place:hover {
+    color: var(--btn-color);
+}
+
+/* Responsive: stack to two columns on tablets */
 @media (max-width: 900px) {
-
-    .project-showcase-item,
-    .project-showcase-item:nth-child(even) {
-        flex-direction: column;
-        gap: 30px;
+    .library-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .project-showcase-title {
-        font-size: 2rem;
+    .library-column {
+        border-right: 1px solid rgba(30, 51, 45, 0.12);
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+    }
+
+    .library-column:nth-child(2n) {
+        border-right: none;
+    }
+}
+
+/* Single column on phones */
+@media (max-width: 600px) {
+    .library-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .library-column {
+        border-right: none;
     }
 }
 
