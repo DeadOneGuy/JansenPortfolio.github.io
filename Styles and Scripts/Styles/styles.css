@@ -751,25 +751,21 @@ a {
     border-bottom: none;
 }
 
-/* ===== LIBRARY-STYLE PROJECTS SECTION ===== */
 .projects-library-section {
     padding: 80px 0 120px;
     background-color: var(--bg-color);
 }
 
-/* Four columns, full width, separated by thin vertical lines */
 .library-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    /* no gap – we use the columns’ own padding */
-}
+    }
 
 .library-column {
     padding: 0 24px;
     border-right: 1px solid rgba(30, 51, 45, 0.12);
-    /* restored vertical divider */
-    display: flex;
+        display: flex;
     flex-direction: column;
 }
 
@@ -777,7 +773,6 @@ a {
     border-right: none;
 }
 
-/* Column header (workplace) – NO underline */
 .library-column-header {
     font-size: 11px;
     font-weight: 700;
@@ -786,8 +781,7 @@ a {
     color: var(--text-secondary);
     margin-bottom: 28px;
     text-align: left;
-    /* or center, as you prefer */
-}
+    }
 
 .library-column-header a {
     text-decoration: none;
@@ -799,40 +793,31 @@ a {
     color: var(--btn-color);
 }
 
-/* Stacked book spines (now horizontal, thin bars) */
 .library-books {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    /* space between books */
-    flex: 1;
+        flex: 1;
 }
 
-/* Each book – a thin horizontal rectangle */
 .book-spine {
     width: 100%;
-    /* fill the column width */
-    height: 70px;
-    /* thin – like a book spine seen from the side */
-    background: #ffffff;
+        height: 70px;
+        background: #ffffff;
     border-radius: 3px;
     box-shadow: 2px 2px 10px rgba(30, 51, 45, 0.1);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* center text vertically */
-    align-items: center;
+        align-items: center;
     gap: 16px;
-    /* align text to the left (or center if you like) */
-    padding: 8px 14px;
+        padding: 8px 14px;
     transition: all 0.3s ease;
     border-left: 3px solid transparent;
-    /* optional spine accent – can be removed */
-    text-decoration: none;
+        text-decoration: none;
     color: inherit;
 }
 
-/* Hover – only the current book slides left */
 .book-spine:hover {
     background: var(--btn-color);
     color: #fff;
@@ -845,7 +830,6 @@ a {
     color: #fff;
 }
 
-/* Project title – wrapped inside the thin bar */
 .spine-title {
     font-family: var(--font-heading);
     font-weight: 700;
@@ -865,7 +849,6 @@ a {
     color: var(--btn-color);
 }
 
-/* Workplace name (clickable) */
 .spine-place {
     font-family: var(--font-body);
     font-size: 9px;
@@ -884,9 +867,34 @@ a {
 
 .spine-place:hover {
     color: var(--btn-color);
+}.book-item {
+    display: flex;
+    flex-direction: column;          }
+
+.book-video {
+    order: -1;                           width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(100%);      }
+
+.book-video a {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
-/* Responsive: stack to two columns on tablets */
+.book-video img {
+    display: block;
+    width: 100%;
+    height: 180px;                        object-fit: cover;
+}
+
+.book-item.video-visible .book-video {
+    max-height: 180px;
+    transform: translateY(0);
+}
 @media (max-width: 900px) {
     .library-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -903,7 +911,6 @@ a {
     }
 }
 
-/* Single column on phones */
 @media (max-width: 600px) {
     .library-grid {
         grid-template-columns: 1fr;
