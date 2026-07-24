@@ -14,231 +14,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../../../../Styles and Scripts/Styles/styles.css">
-    <style>
-        .comparison-section {
-            padding: 60px 0 120px;
-            background-color: var(--bg-color);
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 48px;
-            margin-top: 50px;
-        }
-
-
-        .comparison-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 6px 28px rgba(30, 51, 45, 0.10);
-            transition: var(--transition);
-        }
-
-        .comparison-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 44px rgba(30, 51, 45, 0.16);
-        }
-
-        .comparison-card-caption {
-            padding: 14px 20px;
-            font-size: 12px;
-            color: var(--text-secondary);
-            font-style: italic;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .comparison-card-caption .before-label {
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-style: normal;
-            letter-spacing: 0.5px;
-        }
-
-        .comparison-card-caption .after-label {
-            color: var(--btn-color);
-            font-weight: 600;
-            font-style: normal;
-            letter-spacing: 0.5px;
-        }
-
-
-        .img-compare-wrapper {
-            position: relative;
-            width: 100%;
-
-            height: var(--wrapper-height, 340px);
-            overflow: hidden;
-            cursor: col-resize;
-            user-select: none;
-            -webkit-user-select: none;
-            background: #000;
-        }
-
-
-        .img-compare-before,
-        .img-compare-after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            pointer-events: none;
-        }
-
-
-        .img-compare-after-clip {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%;
-
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .img-compare-after-clip img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-
-        .img-compare-divider {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 100%;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-            z-index: 10;
-            pointer-events: none;
-        }
-
-
-        .img-compare-handle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 44px;
-            height: 44px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 11;
-            pointer-events: none;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .img-compare-handle::before,
-        .img-compare-handle::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-top: 7px solid transparent;
-            border-bottom: 7px solid transparent;
-            position: absolute;
-        }
-
-        .img-compare-handle::before {
-            border-right: 10px solid var(--text-primary);
-            left: 6px;
-        }
-
-        .img-compare-handle::after {
-            border-left: 10px solid var(--text-primary);
-            right: 6px;
-        }
-
-        .img-compare-wrapper.dragging .img-compare-handle {
-            transform: translate(-50%, -50%) scale(1.12);
-            box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
-        }
-
-
-        .img-compare-label {
-            position: absolute;
-            top: 14px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 5px 12px;
-            border-radius: 20px;
-            z-index: 5;
-            pointer-events: none;
-            transition: opacity 0.2s ease;
-        }
-
-        .img-compare-label-before {
-            left: 14px;
-            background: rgba(30, 51, 45, 0.75);
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .img-compare-label-after {
-            right: 14px;
-            background: rgba(103, 47, 60, 0.82);
-            color: rgba(255, 255, 255, 0.92);
-        }
-
-
-        .img-compare-hint {
-            position: absolute;
-            bottom: 14px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.7);
-            background: rgba(0, 0, 0, 0.35);
-            padding: 5px 12px;
-            border-radius: 20px;
-            z-index: 5;
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity 0.4s ease;
-        }
-
-        .img-compare-hint.hidden {
-            opacity: 0;
-        }
-
-
-        @media (max-width: 1000px) {
-            .comparison-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .img-compare-wrapper {
-                height: var(--wrapper-height-mobile, 260px);
-            }
-        }
-    </style>
 </head>
 
 <body class="page-experience">
@@ -328,1247 +103,1383 @@
     <section class="comparison-section">
         <div class="container-wide">
             <p class="media-section-label">BEFORE &amp; AFTER</p>
-            <h2 class="section-heading-large" style="margin-bottom: 10px;">Drag to <em>Compare</em></h2>
-            <p style="text-align:center; color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0;">
-                Slide left/right on each image to reveal the edit
+            <h2 class="section-heading-large" style="margin-bottom: 10px;">Select a <em>Collection</em></h2>
+            <p class="collections-intro-text">
+                Pick a collection, check my pictures and see a Before and After to see my editing skills!
             </p>
 
-            <div class="comparison-grid">
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="1">
-                        <img class="img-compare-before" src="../../../../Resources/fotografie2.png"
-                            alt="Photo 1 — before editing" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/fotografie1.png" alt="Photo 1 — after editing"
-                                loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 01</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="2">
-                        <img class="img-compare-before" src="../../../../Resources/fotografie4.png"
-                            alt="Photo 2 — before editing" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/fotografie3.png" alt="Photo 2 — after editing"
-                                loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 02</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="3"
-                        style="--wrapper-height: 680px; --wrapper-height-mobile: 75vh;">
-                        <img class="img-compare-before" src="../../../../Resources/fotografie6.png"
-                            alt="Photo 3 — before editing" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/fotografie5.png" alt="Photo 3 — after editing"
-                                loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 03</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="4"
-                        style="--wrapper-height: 680px; --wrapper-height-mobile: 75vh;">
-                        <img class="img-compare-before" src="../../../../Resources/fotografie8.png"
-                            alt="Photo 4 — before editing" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/fotografie7.png" alt="Photo 4 — after editing"
-                                loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 04</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card" style="grid-column: 1 / -1;">
-                    <div class="img-compare-wrapper" data-index="5"
-                        style="--wrapper-height: 780px; --wrapper-height-mobile: 75vh;">
-                        <img class="img-compare-before" src="../../../../Resources/fotografie10.png"
-                            alt="Photo 5 — before editing" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/fotografie9.png" alt="Photo 5 — after editing"
-                                loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 05 &mdash; featured
-                            edit</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <!-- ===== NEW PICS ===== -->
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="6">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/1.jpg" alt="Raw 1" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/1.jpg" alt="Graded 1" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 06</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="7">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/2.jpg" alt="Raw 2" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/2.jpg" alt="Graded 2" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 07</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="8">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/3.jpg" alt="Raw 3" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/3.jpg" alt="Graded 3" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 08</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="9">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/4.jpg" alt="Raw 4" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/4.jpg" alt="Graded 4" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 09</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="10">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/5.jpg" alt="Raw 5" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/5.jpg" alt="Graded 5" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 10</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="11">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/6.jpg" alt="Raw 6" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/6.jpg" alt="Graded 6" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 11</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="12">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/7.jpg" alt="Raw 7" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/7.jpg" alt="Graded 7" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 12</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="13">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/8.jpg" alt="Raw 8" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/8.jpg" alt="Graded 8" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 13</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="14">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/9.jpg" alt="Raw 9" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/9.jpg" alt="Graded 9" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 14</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="15">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/10.jpg" alt="Raw 10" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/10.jpg" alt="Graded 10" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 15</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="16">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/11.jpg" alt="Raw 11" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/11.jpg" alt="Graded 11" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 16</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="17">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/12.jpg" alt="Raw 12" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/12.jpg" alt="Graded 12" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 17</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="18">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/13.jpg" alt="Raw 13" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/13.jpg" alt="Graded 13" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 18</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="19">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/14.jpg" alt="Raw 14" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/14.jpg" alt="Graded 14" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 19</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="20">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/15.jpg" alt="Raw 15" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/15.jpg" alt="Graded 15" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 20</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="21">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/16.jpg" alt="Raw 16" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/16.jpg" alt="Graded 16" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 21</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="22">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/17.jpg" alt="Raw 17" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/17.jpg" alt="Graded 17" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 22</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="23">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/18.jpg" alt="Raw 18" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/18.jpg" alt="Graded 18" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 23</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="24">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/19.jpg" alt="Raw 19" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/19.jpg" alt="Graded 19" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 24</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="25">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/20.jpg" alt="Raw 20" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/20.jpg" alt="Graded 20" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 25</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="26">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/21.jpg" alt="Raw 21" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/21.jpg" alt="Graded 21" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 26</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="27">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/22.jpg" alt="Raw 22" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/22.jpg" alt="Graded 22" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 27</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="28">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/23.jpg" alt="Raw 23" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/23.jpg" alt="Graded 23" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 28</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="29">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/24.jpg" alt="Raw 24" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/24.jpg" alt="Graded 24" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 29</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="30">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/25.jpg" alt="Raw 25" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/25.jpg" alt="Graded 25" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 30</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="31">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/26.jpg" alt="Raw 26" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/26.jpg" alt="Graded 26" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 31</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="32">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/27.jpg" alt="Raw 27" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/27.jpg" alt="Graded 27" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 32</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="33">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/28.jpg" alt="Raw 28" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/28.jpg" alt="Graded 28" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 33</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="34">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/29.jpg" alt="Raw 29" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/29.jpg" alt="Graded 29" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 34</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="35">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/30.jpg" alt="Raw 30" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/30.jpg" alt="Graded 30" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 35</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="36">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/31.jpg" alt="Raw 31" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/31.jpg" alt="Graded 31" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 36</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="37">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/32.jpg" alt="Raw 32" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/32.jpg" alt="Graded 32" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 37</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="38">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/33.jpg" alt="Raw 33" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/33.jpg" alt="Graded 33" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 38</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="39">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/34.jpg" alt="Raw 34" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/34.jpg" alt="Graded 34" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 39</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="40">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/35.jpg" alt="Raw 35" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/35.jpg" alt="Graded 35" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 40</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="41">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/36.jpg" alt="Raw 36" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/36.jpg" alt="Graded 36" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 41</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="42">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/37.jpg" alt="Raw 37" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/37.jpg" alt="Graded 37" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 42</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="43">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/38.jpg" alt="Raw 38" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/38.jpg" alt="Graded 38" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 43</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="44">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/39.jpg" alt="Raw 39" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/39.jpg" alt="Graded 39" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 44</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="45">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/40.jpg" alt="Raw 40" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/40.jpg" alt="Graded 40" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 45</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="46">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/41.jpg" alt="Raw 41" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/41.jpg" alt="Graded 41" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 46</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="47">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/42.jpg" alt="Raw 42" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/42.jpg" alt="Graded 42" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 47</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="48">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/43.jpg" alt="Raw 43" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/43.jpg" alt="Graded 43" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 48</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="49">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/44.jpg" alt="Raw 44" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/44.jpg" alt="Graded 44" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 49</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="50">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/45.jpg" alt="Raw 45" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/45.jpg" alt="Graded 45" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 50</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="51">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/46.jpg" alt="Raw 46" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/46.jpg" alt="Graded 46" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 51</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="52">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/47.jpg" alt="Raw 47" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/47.jpg" alt="Graded 47" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 52</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="53">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/48.jpg" alt="Raw 48" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/48.jpg" alt="Graded 48" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 53</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="54">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/49.jpg" alt="Raw 49" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/49.jpg" alt="Graded 49" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 54</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="55">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/50.jpg" alt="Raw 50" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/50.jpg" alt="Graded 50" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 55</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="56">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/51.jpg" alt="Raw 51" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/51.jpg" alt="Graded 51" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 56</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="57">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/52.jpg" alt="Raw 52" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/52.jpg" alt="Graded 52" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 57</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="58">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/53.jpg" alt="Raw 53" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/53.jpg" alt="Graded 53" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 58</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="59">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/54.jpg" alt="Raw 54" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/54.jpg" alt="Graded 54" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 59</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="60">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/55.jpg" alt="Raw 55" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/55.jpg" alt="Graded 55" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 60</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="61">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/56.jpg" alt="Raw 56" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/56.jpg" alt="Graded 56" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 61</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="62">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/57.jpg" alt="Raw 57" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/57.jpg" alt="Graded 57" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 62</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="63">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/58.jpg" alt="Raw 58" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/58.jpg" alt="Graded 58" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 63</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <div class="img-compare-wrapper" data-index="64">
-                        <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/59.jpg" alt="Raw 59" loading="lazy">
-                        <div class="img-compare-after-clip">
-                            <img src="../../../../Resources/NewPics/Raw/59.jpg" alt="Graded 59" loading="lazy">
-                        </div>
-                        <span class="img-compare-label img-compare-label-before">Before</span>
-                        <span class="img-compare-label img-compare-label-after">After</span>
-                        <div class="img-compare-divider"></div>
-                        <div class="img-compare-handle"></div>
-                        <div class="img-compare-hint">&#8592; Drag &#8594;</div>
-                    </div>
-                    <div class="comparison-card-caption">
-                        <span class="before-label">&#9675; Before</span>
-                        <span style="color: var(--text-secondary); font-style: italic;">Photo 64</span>
-                        <span class="after-label">After &#9679;</span>
-                    </div>
-                </div>
+            <div class="collections-grid">
+
+                <button type="button" class="folder-card" data-window="window-collection-1" aria-haspopup="dialog">
+                    <div class="folder-visual">
+                        <div class="folder-tab"></div>
+                        <div class="folder-back"></div>
+                        <div class="folder-peek">
+                            <img src="../../../../Resources/fotografie3.png" alt="" loading="lazy">
+                            <img src="../../../../Resources/fotografie9.png" alt="" loading="lazy">
+                            <img src="../../../../Resources/fotografie7.png" alt="" loading="lazy">
+                        </div>
+                        <div class="folder-front"></div>
+                    </div>
+                    <div class="folder-label">
+                        <span class="folder-name">Collection 01: Duck day!</span>
+                        <span class="folder-meta">Collection 02: Trip to the zoo</span>
+                    </div>
+                </button>
+
+                <button type="button" class="folder-card" data-window="window-collection-2" aria-haspopup="dialog">
+                    <div class="folder-visual">
+                        <div class="folder-tab"></div>
+                        <div class="folder-back"></div>
+                        <div class="folder-peek">
+                            <img src="../../../../Resources/NewPics/Raw/6.jpg" alt="" loading="lazy">
+                            <img src="../../../../Resources/NewPics/Raw/20.jpg" alt="" loading="lazy">
+                            <img src="../../../../Resources/NewPics/Raw/40.jpg" alt="" loading="lazy">
+                        </div>
+                        <div class="folder-front"></div>
+                    </div>
+                    <div class="folder-label">
+                        <span class="folder-name">Colecci&oacute;n 02</span>
+                        <span class="folder-meta">59 fotos &middot; SD Card</span>
+                    </div>
+                </button>
 
             </div>
         </div>
     </section>
+
+    <!-- ===== VENTANA - COLECCION 01 ===== -->
+    <div class="os-window-overlay" id="window-collection-1-overlay">
+        <div class="os-window" role="dialog" aria-modal="true" aria-label="Colecci&oacute;n 01">
+            <div class="os-window-titlebar">
+                <div class="os-window-controls">
+                    <button type="button" class="os-dot os-dot-close" data-close aria-label="Cerrar ventana"></button>
+                    <span class="os-dot os-dot-min" aria-hidden="true"></span>
+                    <span class="os-dot os-dot-max" aria-hidden="true"></span>
+                </div>
+                <div class="os-window-title">SD_CARD (E:) &rsaquo; Coleccion_01</div>
+                <div class="os-window-spacer"></div>
+            </div>
+            <div class="os-window-toolbar">
+                <span class="os-path">SD Card &rsaquo; DCIM &rsaquo; Colecci&oacute;n 01</span>
+                <span class="os-count">5 elementos</span>
+            </div>
+            <div class="os-window-body">
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="1">
+                            <img class="img-compare-before" src="../../../../Resources/fotografie2.png"
+                                alt="Photo 1 — before editing" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/fotografie1.png" alt="Photo 1 — after editing"
+                                    loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 01</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="2">
+                            <img class="img-compare-before" src="../../../../Resources/fotografie4.png"
+                                alt="Photo 2 — before editing" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/fotografie3.png" alt="Photo 2 — after editing"
+                                    loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 02</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="3"
+                            style="--wrapper-height: 680px; --wrapper-height-mobile: 75vh;">
+                            <img class="img-compare-before" src="../../../../Resources/fotografie6.png"
+                                alt="Photo 3 — before editing" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/fotografie5.png" alt="Photo 3 — after editing"
+                                    loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 03</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="4"
+                            style="--wrapper-height: 680px; --wrapper-height-mobile: 75vh;">
+                            <img class="img-compare-before" src="../../../../Resources/fotografie8.png"
+                                alt="Photo 4 — before editing" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/fotografie7.png" alt="Photo 4 — after editing"
+                                    loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 04</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card" style="grid-column: 1 / -1;">
+                        <div class="img-compare-wrapper" data-index="5"
+                            style="--wrapper-height: 780px; --wrapper-height-mobile: 75vh;">
+                            <img class="img-compare-before" src="../../../../Resources/fotografie10.png"
+                                alt="Photo 5 — before editing" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/fotografie9.png" alt="Photo 5 — after editing"
+                                    loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 05 &mdash; featured
+                                edit</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== VENTANA - COLECCION 02 ===== -->
+    <div class="os-window-overlay" id="window-collection-2-overlay">
+        <div class="os-window" role="dialog" aria-modal="true" aria-label="Colecci&oacute;n 02">
+            <div class="os-window-titlebar">
+                <div class="os-window-controls">
+                    <button type="button" class="os-dot os-dot-close" data-close aria-label="Cerrar ventana"></button>
+                    <span class="os-dot os-dot-min" aria-hidden="true"></span>
+                    <span class="os-dot os-dot-max" aria-hidden="true"></span>
+                </div>
+                <div class="os-window-title">SD_CARD (E:) &rsaquo; Coleccion_02</div>
+                <div class="os-window-spacer"></div>
+            </div>
+            <div class="os-window-toolbar">
+                <span class="os-path">SD Card &rsaquo; DCIM &rsaquo; Colecci&oacute;n 02</span>
+                <span class="os-count">59 elementos</span>
+            </div>
+            <div class="os-window-body">
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="6">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/1.jpg" alt="Raw 1"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/1.jpg" alt="Graded 1" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 06</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="7">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/2.jpg" alt="Raw 2"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/2.jpg" alt="Graded 2" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 07</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="8">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/3.jpg" alt="Raw 3"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/3.jpg" alt="Graded 3" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 08</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="9">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/4.jpg" alt="Raw 4"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/4.jpg" alt="Graded 4" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 09</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="10">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/5.jpg" alt="Raw 5"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/5.jpg" alt="Graded 5" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 10</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="11">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/6.jpg" alt="Raw 6"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/6.jpg" alt="Graded 6" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 11</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="12">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/7.jpg" alt="Raw 7"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/7.jpg" alt="Graded 7" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 12</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="13">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/8.jpg" alt="Raw 8"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/8.jpg" alt="Graded 8" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 13</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="14">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/9.jpg" alt="Raw 9"
+                                loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/9.jpg" alt="Graded 9" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 14</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="15">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/10.jpg"
+                                alt="Raw 10" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/10.jpg" alt="Graded 10" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 15</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="16">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/11.jpg"
+                                alt="Raw 11" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/11.jpg" alt="Graded 11" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 16</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="17">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/12.jpg"
+                                alt="Raw 12" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/12.jpg" alt="Graded 12" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 17</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="18">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/13.jpg"
+                                alt="Raw 13" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/13.jpg" alt="Graded 13" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 18</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="19">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/14.jpg"
+                                alt="Raw 14" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/14.jpg" alt="Graded 14" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 19</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="20">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/15.jpg"
+                                alt="Raw 15" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/15.jpg" alt="Graded 15" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 20</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="21">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/16.jpg"
+                                alt="Raw 16" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/16.jpg" alt="Graded 16" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 21</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="22">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/17.jpg"
+                                alt="Raw 17" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/17.jpg" alt="Graded 17" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 22</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="23">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/18.jpg"
+                                alt="Raw 18" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/18.jpg" alt="Graded 18" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 23</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="24">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/19.jpg"
+                                alt="Raw 19" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/19.jpg" alt="Graded 19" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 24</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="25">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/20.jpg"
+                                alt="Raw 20" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/20.jpg" alt="Graded 20" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 25</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="26">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/21.jpg"
+                                alt="Raw 21" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/21.jpg" alt="Graded 21" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 26</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="27">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/22.jpg"
+                                alt="Raw 22" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/22.jpg" alt="Graded 22" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 27</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="28">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/23.jpg"
+                                alt="Raw 23" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/23.jpg" alt="Graded 23" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 28</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="29">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/24.jpg"
+                                alt="Raw 24" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/24.jpg" alt="Graded 24" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 29</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="30">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/25.jpg"
+                                alt="Raw 25" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/25.jpg" alt="Graded 25" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 30</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="31">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/26.jpg"
+                                alt="Raw 26" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/26.jpg" alt="Graded 26" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 31</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="32">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/27.jpg"
+                                alt="Raw 27" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/27.jpg" alt="Graded 27" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 32</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="33">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/28.jpg"
+                                alt="Raw 28" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/28.jpg" alt="Graded 28" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 33</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="34">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/29.jpg"
+                                alt="Raw 29" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/29.jpg" alt="Graded 29" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 34</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="35">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/30.jpg"
+                                alt="Raw 30" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/30.jpg" alt="Graded 30" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 35</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="36">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/31.jpg"
+                                alt="Raw 31" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/31.jpg" alt="Graded 31" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 36</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="37">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/32.jpg"
+                                alt="Raw 32" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/32.jpg" alt="Graded 32" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 37</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="38">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/33.jpg"
+                                alt="Raw 33" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/33.jpg" alt="Graded 33" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 38</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="39">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/34.jpg"
+                                alt="Raw 34" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/34.jpg" alt="Graded 34" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 39</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="40">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/35.jpg"
+                                alt="Raw 35" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/35.jpg" alt="Graded 35" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 40</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="41">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/36.jpg"
+                                alt="Raw 36" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/36.jpg" alt="Graded 36" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 41</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="42">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/37.jpg"
+                                alt="Raw 37" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/37.jpg" alt="Graded 37" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 42</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="43">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/38.jpg"
+                                alt="Raw 38" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/38.jpg" alt="Graded 38" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 43</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="44">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/39.jpg"
+                                alt="Raw 39" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/39.jpg" alt="Graded 39" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 44</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="45">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/40.jpg"
+                                alt="Raw 40" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/40.jpg" alt="Graded 40" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 45</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="46">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/41.jpg"
+                                alt="Raw 41" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/41.jpg" alt="Graded 41" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 46</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="47">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/42.jpg"
+                                alt="Raw 42" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/42.jpg" alt="Graded 42" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 47</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="48">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/43.jpg"
+                                alt="Raw 43" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/43.jpg" alt="Graded 43" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 48</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="49">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/44.jpg"
+                                alt="Raw 44" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/44.jpg" alt="Graded 44" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 49</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="50">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/45.jpg"
+                                alt="Raw 45" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/45.jpg" alt="Graded 45" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 50</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="51">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/46.jpg"
+                                alt="Raw 46" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/46.jpg" alt="Graded 46" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 51</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="52">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/47.jpg"
+                                alt="Raw 47" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/47.jpg" alt="Graded 47" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 52</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="53">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/48.jpg"
+                                alt="Raw 48" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/48.jpg" alt="Graded 48" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 53</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="54">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/49.jpg"
+                                alt="Raw 49" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/49.jpg" alt="Graded 49" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 54</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="55">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/50.jpg"
+                                alt="Raw 50" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/50.jpg" alt="Graded 50" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 55</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="56">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/51.jpg"
+                                alt="Raw 51" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/51.jpg" alt="Graded 51" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 56</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="57">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/52.jpg"
+                                alt="Raw 52" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/52.jpg" alt="Graded 52" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 57</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="58">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/53.jpg"
+                                alt="Raw 53" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/53.jpg" alt="Graded 53" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 58</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="59">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/54.jpg"
+                                alt="Raw 54" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/54.jpg" alt="Graded 54" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 59</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="60">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/55.jpg"
+                                alt="Raw 55" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/55.jpg" alt="Graded 55" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 60</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="61">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/56.jpg"
+                                alt="Raw 56" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/56.jpg" alt="Graded 56" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 61</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="62">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/57.jpg"
+                                alt="Raw 57" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/57.jpg" alt="Graded 57" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 62</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="63">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/58.jpg"
+                                alt="Raw 58" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/58.jpg" alt="Graded 58" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 63</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card">
+                        <div class="img-compare-wrapper" data-index="64">
+                            <img class="img-compare-before" src="../../../../Resources/NewPics/Graded/59.jpg"
+                                alt="Raw 59" loading="lazy">
+                            <div class="img-compare-after-clip">
+                                <img src="../../../../Resources/NewPics/Raw/59.jpg" alt="Graded 59" loading="lazy">
+                            </div>
+                            <span class="img-compare-label img-compare-label-before">Before</span>
+                            <span class="img-compare-label img-compare-label-after">After</span>
+                            <div class="img-compare-divider"></div>
+                            <div class="img-compare-handle"></div>
+                            <div class="img-compare-hint">&#8592; Drag &#8594;</div>
+                        </div>
+                        <div class="comparison-card-caption">
+                            <span class="before-label">&#9675; Before</span>
+                            <span style="color: var(--text-secondary); font-style: italic;">Photo 64</span>
+                            <span class="after-label">After &#9679;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <section class="detail-back-section" style="padding-top: 0;">
@@ -1598,7 +1509,6 @@
     <script>
         document.getElementById('currentYear').innerText = new Date().getFullYear();
 
-        // ── Before/After Comparison Slider ──
         document.querySelectorAll('.img-compare-wrapper').forEach(function (wrapper) {
             const clip = wrapper.querySelector('.img-compare-after-clip');
             const divider = wrapper.querySelector('.img-compare-divider');
@@ -1610,31 +1520,35 @@
 
             function setPosition(x) {
                 const rect = wrapper.getBoundingClientRect();
-                // Clamp between 2% and 98% so edge images are always visible
                 let pct = Math.max(2, Math.min(98, ((x - rect.left) / rect.width) * 100));
 
                 clip.style.width = pct + '%';
                 divider.style.left = pct + '%';
                 handle.style.left = pct + '%';
-
-                // Keep the inner image at full wrapper width so it doesn't squish
-                clip.querySelector('img').style.width = (rect.width) + 'px';
-
+                if (rect.width > 0) {
+                    wrapper.style.setProperty('--wrapper-width', rect.width + 'px');
+                    clip.querySelector('img').style.width = rect.width + 'px';
+                }
                 if (!hintDismissed) {
                     hint.classList.add('hidden');
                     hintDismissed = true;
                 }
             }
 
-            // Set inner image width on init so it matches the wrapper
             function initWidth() {
-                const rect = wrapper.getBoundingClientRect();
-                clip.querySelector('img').style.width = rect.width + 'px';
+                // ✅ Use offsetWidth instead of getBoundingClientRect().width
+                // offsetWidth is NOT affected by CSS transforms (like scale(0.94))
+                // so it returns the true layout width even when the overlay is closed/scaled down.
+                const w = wrapper.offsetWidth;
+                if (w > 0) {
+                    wrapper.style.setProperty('--wrapper-width', w + 'px');
+                    clip.querySelector('img').style.width = w + 'px';
+                }
             }
             initWidth();
             window.addEventListener('resize', initWidth);
+            wrapper.__refreshCompareWidth = initWidth;
 
-            // Mouse events
             wrapper.addEventListener('mousedown', function (e) {
                 isDragging = true;
                 wrapper.classList.add('dragging');
@@ -1654,7 +1568,6 @@
                 }
             });
 
-            // Touch events
             wrapper.addEventListener('touchstart', function (e) {
                 isDragging = true;
                 wrapper.classList.add('dragging');
@@ -1672,6 +1585,65 @@
                 wrapper.classList.remove('dragging');
             });
         });
+
+        // Also refresh all wrappers after the full page (including all lazy images) loads
+        window.addEventListener('load', function () {
+            document.querySelectorAll('.img-compare-wrapper').forEach(function (wrapper) {
+                if (typeof wrapper.__refreshCompareWidth === 'function') {
+                    wrapper.__refreshCompareWidth();
+                }
+            });
+        });
+
+        (function () {
+            const folders = document.querySelectorAll('.folder-card');
+            let lastFocusedFolder = null;
+
+            function openWindow(id) {
+                const overlay = document.getElementById(id + '-overlay');
+                if (!overlay) return;
+
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+
+                // ✅ Widths are already correct from page load (offsetWidth isn't affected by scale).
+                // No need to wait for transitionend — the images will appear in the right place immediately.
+
+                const closeBtn = overlay.querySelector('[data-close]');
+                if (closeBtn) closeBtn.focus();
+            }
+
+            function closeWindow(overlay) {
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+                if (lastFocusedFolder) lastFocusedFolder.focus();
+            }
+
+            folders.forEach(function (folder) {
+                folder.addEventListener('click', function () {
+                    lastFocusedFolder = folder;
+                    openWindow(folder.getAttribute('data-window'));
+                });
+            });
+
+            document.querySelectorAll('.os-window-overlay').forEach(function (overlay) {
+                overlay.addEventListener('click', function (e) {
+                    if (e.target === overlay) closeWindow(overlay);
+                });
+                const closeBtn = overlay.querySelector('[data-close]');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function () {
+                        closeWindow(overlay);
+                    });
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.os-window-overlay.open').forEach(closeWindow);
+                }
+            });
+        })();
     </script>
 </body>
 
