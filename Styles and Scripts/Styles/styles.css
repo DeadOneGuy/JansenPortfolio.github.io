@@ -938,6 +938,8 @@ a {
     grid-template-columns: repeat(2, 1fr);
     gap: 48px;
     margin-top: 50px;
+    align-items: center;
+    /* ← changed from start to center */
 }
 
 
@@ -983,8 +985,9 @@ a {
 .img-compare-wrapper {
     position: relative;
     width: 100%;
-
-    height: var(--wrapper-height, 490px);
+    /* REMOVE THIS: height: var(--wrapper-height, 490px); */
+    aspect-ratio: var(--aspect-ratio, 16 / 9);
+    /* fallback, will be overwritten by JS */
     overflow: hidden;
     cursor: col-resize;
     user-select: none;
@@ -1146,9 +1149,7 @@ a {
 }
 
 @media (max-width: 600px) {
-    .img-compare-wrapper {
-        height: var(--wrapper-height-mobile, 260px);
-    }
+    .img-compare-wrapper {}
 }
 
 /* ===== COLECCIONES (CARPETAS) ===== */
