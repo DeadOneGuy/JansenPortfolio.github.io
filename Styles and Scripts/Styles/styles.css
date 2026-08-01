@@ -3733,7 +3733,7 @@ a {
 .btn-projects-studios {
     display: inline-flex;
     margin-top: 20px;
-    border-color: var(--btn-color);
+    border: 2px solid var(--btn-color);
     color: var(--btn-color);
     background: transparent;
     font-size: 11px;
@@ -3743,15 +3743,14 @@ a {
     text-transform: uppercase;
     border-radius: 50px;
     transition: var(--transition);
-    border-width: 2px;
-    outline: 2px solid #672F3C;
+    box-shadow: 0 0 0 0px var(--btn-color); /* inicial */
 }
 
 .btn-projects-studios:hover {
     background-color: var(--btn-color);
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(103, 47, 60, 0.25);
+    box-shadow: 0 0 0 2px var(--btn-color), 0 6px 20px rgba(103, 47, 60, 0.25);
 }
 
 .contact-mini .btn-projects:hover {
