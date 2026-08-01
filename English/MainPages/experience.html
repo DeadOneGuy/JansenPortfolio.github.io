@@ -61,19 +61,7 @@
         <div class="container-wide">
 
 
-            <div class="timeline-header">
-
-                <div class="timeline-legend" aria-label="Timeline legend">
-                    <div class="timeline-legend-item">
-                        <span class="legend-dot work"></span>
-                        <span>Work Experience</span>
-                    </div>
-                    <div class="timeline-legend-item">
-                        <span class="legend-dot education"></span>
-                        <span>Education</span>
-                    </div>
-                </div>
-
+            <div class="timeline-header" style="justify-content: end;">
                 <button id="toggleTimelineBtn" class="timeline-toggle-btn" aria-expanded="true"
                     aria-controls="timelineCollapsible">
                     <span>Hide Timeline</span>
@@ -86,7 +74,17 @@
 
 
             <div id="timelineCollapsible" class="timeline-collapsible-wrapper">
-
+                <div class="timeline-legend" aria-label="Timeline legend" style="justify-content: end;">
+                    <div class="timeline-legend-item">
+                        <span class="legend-dot work"></span>
+                        <span>Work Experience</span>
+                    </div>
+                    <div class="timeline-legend-item">
+                        <span class="legend-dot education"></span>
+                        <span>Education</span>
+                    </div>
+                </div>
+                <br>
                 <div class="timeline-ruler" id="timelineRuler" aria-label="Career timeline">
 
                     <div class="timeline-ruler-years" id="timelineYears"></div>

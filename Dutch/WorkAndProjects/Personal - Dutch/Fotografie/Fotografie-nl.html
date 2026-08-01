@@ -1486,8 +1486,8 @@
 
     <section class="detail-back-section" style="padding-top: 0;">
         <div class="container-wide">
-            <a href="../personal-work.html" class="detail-back-btn">
-                &#8592; Back to Personal Work
+            <a href="../../../MainPages/projects-nl.html" class="detail-back-btn">
+                &#8592; Back to Projects
             </a>
         </div>
     </section>
@@ -1499,9 +1499,10 @@
             <a href="../../../../English/WorkAndProjects/Personal - English/Fotografie/Fotografie.html"
                 class="footer-flag-link" aria-label="Nederlandse versie">
                 <svg class="flag-icon" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="24" height="5.33" fill="#AE1C28" />
-                    <rect y="5.33" width="24" height="5.33" fill="#FFFFFF" />
-                    <rect y="10.66" width="24" height="5.34" fill="#21468B" />
+                    <rect width="24" height="16" fill="#012169" />
+                    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="1.5" />
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#FFFFFF" stroke-width="3" />
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#C8102E" stroke-width="1" />
                 </svg>
             </a>
         </div>
@@ -1509,13 +1510,16 @@
 
     <script src="../../../../Styles and Scripts/Scripts/script.js"></script>
     <script>
+        // ---- Footer year ----
         document.getElementById('currentYear').innerText = new Date().getFullYear();
 
+        // ---- Image compare sliders ----
         document.querySelectorAll('.img-compare-wrapper').forEach(function (wrapper) {
             const clip = wrapper.querySelector('.img-compare-after-clip');
             const divider = wrapper.querySelector('.img-compare-divider');
             const handle = wrapper.querySelector('.img-compare-handle');
             const hint = wrapper.querySelector('.img-compare-hint');
+            const beforeImg = wrapper.querySelector('.img-compare-before');
 
             let isDragging = false;
             let hintDismissed = false;
@@ -1537,32 +1541,45 @@
                 }
             }
 
+            // Set the wrapper's aspect-ratio to match the before image
+            function setAspectRatio() {
+                if (beforeImg.naturalWidth && beforeImg.naturalHeight) {
+                    const ratio = beforeImg.naturalWidth / beforeImg.naturalHeight;
+                    wrapper.style.aspectRatio = ratio;
+                }
+            }
+
+            // Trigger when image is loaded (or already loaded)
+            if (beforeImg.complete && beforeImg.naturalWidth) {
+                setAspectRatio();
+            } else {
+                beforeImg.addEventListener('load', setAspectRatio, { once: true });
+            }
+
+            // Keep the after-clip image width in sync
             function initWidth() {
-                // ✅ Use offsetWidth instead of getBoundingClientRect().width
-                // offsetWidth is NOT affected by CSS transforms (like scale(0.94))
-                // so it returns the true layout width even when the overlay is closed/scaled down.
                 const w = wrapper.offsetWidth;
                 if (w > 0) {
                     wrapper.style.setProperty('--wrapper-width', w + 'px');
-                    clip.querySelector('img').style.width = w + 'px';
+                    const afterImg = clip.querySelector('img');
+                    if (afterImg) afterImg.style.width = w + 'px';
                 }
             }
             initWidth();
             window.addEventListener('resize', initWidth);
             wrapper.__refreshCompareWidth = initWidth;
 
+            // Mouse events
             wrapper.addEventListener('mousedown', function (e) {
                 isDragging = true;
                 wrapper.classList.add('dragging');
                 setPosition(e.clientX);
                 e.preventDefault();
             });
-
             document.addEventListener('mousemove', function (e) {
                 if (!isDragging) return;
                 setPosition(e.clientX);
             });
-
             document.addEventListener('mouseup', function () {
                 if (isDragging) {
                     isDragging = false;
@@ -1570,25 +1587,24 @@
                 }
             });
 
+            // Touch events
             wrapper.addEventListener('touchstart', function (e) {
                 isDragging = true;
                 wrapper.classList.add('dragging');
                 setPosition(e.touches[0].clientX);
                 e.preventDefault();
             }, { passive: false });
-
             document.addEventListener('touchmove', function (e) {
                 if (!isDragging) return;
                 setPosition(e.touches[0].clientX);
             }, { passive: true });
-
             document.addEventListener('touchend', function () {
                 isDragging = false;
                 wrapper.classList.remove('dragging');
             });
         });
 
-        // Also refresh all wrappers after the full page (including all lazy images) loads
+        // Refresh all wrappers after full load (e.g. lazy images)
         window.addEventListener('load', function () {
             document.querySelectorAll('.img-compare-wrapper').forEach(function (wrapper) {
                 if (typeof wrapper.__refreshCompareWidth === 'function') {
@@ -1597,6 +1613,7 @@
             });
         });
 
+        // ---- OS-style windows (collections) ----
         (function () {
             const folders = document.querySelectorAll('.folder-card');
             let lastFocusedFolder = null;
@@ -1604,12 +1621,8 @@
             function openWindow(id) {
                 const overlay = document.getElementById(id + '-overlay');
                 if (!overlay) return;
-
                 overlay.classList.add('open');
                 document.body.style.overflow = 'hidden';
-
-                // ✅ Widths are already correct from page load (offsetWidth isn't affected by scale).
-                // No need to wait for transitionend — the images will appear in the right place immediately.
 
                 const closeBtn = overlay.querySelector('[data-close]');
                 if (closeBtn) closeBtn.focus();
@@ -1645,6 +1658,38 @@
                     document.querySelectorAll('.os-window-overlay.open').forEach(closeWindow);
                 }
             });
+        })();
+
+        // ---- Randomise folder preview images ----
+        (function randomizeFolderPreviews() {
+            // Helper: get N distinct random numbers between min and max (inclusive)
+            function getRandomNumbers(count, min, max) {
+                const nums = new Set();
+                while (nums.size < count) {
+                    nums.add(Math.floor(Math.random() * (max - min + 1)) + min);
+                }
+                return Array.from(nums);
+            }
+
+            // Collection 01: fotografie1 … fotografie10
+            const folder1 = document.querySelector('.folder-card[data-window="window-collection-1"] .folder-peek');
+            if (folder1) {
+                const randomNums = getRandomNumbers(3, 1, 10);
+                const imgs = folder1.querySelectorAll('img');
+                imgs.forEach((img, i) => {
+                    img.src = `../../../../Resources/fotografie${randomNums[i]}.png`;
+                });
+            }
+
+            // Collection 02: Raw/1.jpg … Raw/59.jpg
+            const folder2 = document.querySelector('.folder-card[data-window="window-collection-2"] .folder-peek');
+            if (folder2) {
+                const randomNums = getRandomNumbers(3, 1, 59);
+                const imgs = folder2.querySelectorAll('img');
+                imgs.forEach((img, i) => {
+                    img.src = `../../../../Resources/NewPics/Raw/${randomNums[i]}.jpg`;
+                });
+            }
         })();
     </script>
 </body>

@@ -3730,6 +3730,30 @@ a {
     border-width: 2px;
 }
 
+.btn-projects-studios {
+    display: inline-flex;
+    margin-top: 20px;
+    border-color: var(--btn-color);
+    color: var(--btn-color);
+    background: transparent;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding: 12px 28px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: var(--transition);
+    border-width: 2px;
+    outline: 2px solid #672F3C;
+}
+
+.btn-projects-studios:hover {
+    background-color: var(--btn-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(103, 47, 60, 0.25);
+}
+
 .contact-mini .btn-projects:hover {
     background-color: var(--btn-color);
     color: #fff;
