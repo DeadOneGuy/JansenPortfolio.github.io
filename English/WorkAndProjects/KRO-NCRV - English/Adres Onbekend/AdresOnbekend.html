@@ -48,15 +48,22 @@
 
         .phone-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
             margin-top: 40px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-items: center;
+            align-items: start;
         }
 
         .phone-grid-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            max-width: 280px;
         }
 
         .phone-grid-caption {
@@ -68,7 +75,6 @@
             letter-spacing: 1px;
             text-align: center;
         }
-
 
         .facebook-embed-wrapper {
             width: 100%;
@@ -103,12 +109,14 @@
         @media (max-width: 1300px) {
             .phone-grid {
                 grid-template-columns: repeat(3, 1fr);
+                max-width: 860px;
             }
         }
 
         @media (max-width: 900px) {
             .phone-grid {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 600px;
             }
 
             .detail-about-photo-col.phone-col {
@@ -120,14 +128,19 @@
         @media (max-width: 600px) {
             .phone-grid {
                 grid-template-columns: 1fr;
+                max-width: 320px;
                 gap: 32px;
+            }
+
+            .phone-grid-item {
+                max-width: 280px;
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 
 <body class="page-experience">
-
 
     <header class="header page-header">
         <div class="container-wide"
@@ -143,19 +156,18 @@
         </div>
     </header>
 
-
     <nav class="side-nav" id="sideNav">
         <ul>
             <li><a href="../../../MainPages/index.html">Home</a></li>
             <li><a href="../../../MainPages/projects.html">Projects</a></li>
             <li><a href="../../../MainPages/experience.html">Experience and <br>Education</a></li>
+            <li><a href="../../Personal - English/Fotografie/Fotografie.html">Photography</a></li>
             <li><a href="../../../MainPages/equipment.html">Equipment</a></li>
             <li><a href="../../../MainPages/meetme.html">Meet Me</a></li>
             <li><a href="../../../MainPages/contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="side-nav-overlay" id="sideNavOverlay"></div>
-
 
     <section class="exp-page-hero" style="margin-top: -30px;">
         <div class="container-wide">
@@ -172,23 +184,21 @@
         </div>
     </section>
 
-
     <section class="detail-about-section">
         <div class="container-wide">
             <div class="detail-about-layout">
 
-
                 <div class="detail-about-text">
                     <p class="detail-section-label">ABOUT THIS WORK</p>
-                    <h2 class="detail-about-title">Social highlights for <em>Adres Onbekend</em></h2>
+                    <h2 class="detail-about-title">Social media highlights for <em>Adres Onbekend</em></h2>
                     <p class="detail-about-body">
-                        <strong>Adres Onbekend</strong> is a program on Radio 5, broadcast every Sunday between 12:00
-                        and 14:00. The show reunites people who have been searching for each other for a long time. My
-                        task was to edit social posts from the highlights of these emotional reunions.
+                        <strong>Adres Onbekend</strong> is a program on NPO Radio 5, broadcast every Sunday between
+                        12:00 and 14:00. The show reunites people who have been searching for each other for a long
+                        time. My task was to edit social posts from the highlights of these emotional reunions.
                     </p>
                     <p class="detail-about-body">
-                        Below are the videos I edited for this project. Each clip captures the heart of the reunion —
-                        the anticipation, the recognition, and the joy of finding someone after years apart.
+                        Below are the videos I edited for this project. Each clip captures the heart of the reunion, the
+                        anticipation, the recognition, and the joy of finding someone after years apart.
                     </p>
                     <p class="detail-about-body">
                         Working on Adres Onbekend taught me how to condense powerful, emotional moments into short,
@@ -202,7 +212,6 @@
                         <span>Emotional Content</span>
                     </div>
                 </div>
-
 
                 <div class="detail-about-photo-col phone-col">
                     <div class="facebook-embed-wrapper">
@@ -218,9 +227,7 @@
         </div>
     </section>
 
-
     <div class="detail-divider"></div>
-
 
     <section class="phone-grid-section">
         <div class="container-wide">
@@ -237,9 +244,7 @@
                             allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
-                    <p class="phone-grid-caption">Highlight 02</p>
                 </div>
-
 
                 <div class="phone-grid-item">
                     <div class="facebook-embed-wrapper">
@@ -249,9 +254,7 @@
                             allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
-                    <p class="phone-grid-caption">Highlight 03</p>
                 </div>
-
 
                 <div class="phone-grid-item">
                     <div class="facebook-embed-wrapper">
@@ -261,9 +264,7 @@
                             allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
-                    <p class="phone-grid-caption">Highlight 04</p>
                 </div>
-
 
                 <div class="phone-grid-item">
                     <div class="facebook-embed-wrapper">
@@ -273,14 +274,11 @@
                             allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
-                    <p class="phone-grid-caption">Highlight 05</p>
                 </div>
 
             </div>
-
         </div>
     </section>
-
 
     <section class="detail-back-section" style="padding-top: 0;">
         <div class="container-wide">
@@ -289,7 +287,6 @@
             </a>
         </div>
     </section>
-
 
     <footer class="footer" id="contact">
         <div class="container">
@@ -309,6 +306,7 @@
     <script>
         document.getElementById('currentYear').innerText = new Date().getFullYear();
     </script>
+
 </body>
 
 </html>

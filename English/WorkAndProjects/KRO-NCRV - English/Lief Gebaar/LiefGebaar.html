@@ -48,15 +48,22 @@
 
         .phone-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin-top: 40px;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-items: center;
+            align-items: start;
         }
 
         .phone-grid-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            max-width: 280px;
         }
 
         .phone-grid-caption {
@@ -69,7 +76,6 @@
             text-align: center;
         }
 
-
         .detail-about-photo-col.phone-col {
             display: flex;
             justify-content: center;
@@ -77,15 +83,10 @@
             top: 100px;
         }
 
-        @media (max-width: 1300px) {
-            .phone-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
         @media (max-width: 900px) {
             .phone-grid {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 600px;
             }
 
             .detail-about-photo-col.phone-col {
@@ -97,14 +98,19 @@
         @media (max-width: 600px) {
             .phone-grid {
                 grid-template-columns: 1fr;
+                max-width: 320px;
                 gap: 32px;
+            }
+
+            .phone-grid-item {
+                max-width: 280px;
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 
 <body class="page-experience">
-
 
     <header class="header page-header">
         <div class="container-wide"
@@ -120,19 +126,18 @@
         </div>
     </header>
 
-
     <nav class="side-nav" id="sideNav">
         <ul>
             <li><a href="../../../MainPages/index.html">Home</a></li>
             <li><a href="../../../MainPages/projects.html">Projects</a></li>
             <li><a href="../../../MainPages/experience.html">Experience and <br>Education</a></li>
+            <li><a href="../../Personal - English/Fotografie/Fotografie.html">Photography</a></li>
             <li><a href="../../../MainPages/equipment.html">Equipment</a></li>
             <li><a href="../../../MainPages/meetme.html">Meet Me</a></li>
             <li><a href="../../../MainPages/contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="side-nav-overlay" id="sideNavOverlay"></div>
-
 
     <section class="exp-page-hero" style="margin-top: -30px;">
         <div class="container-wide">
@@ -145,31 +150,29 @@
             </div>
             <p class="meetme-label">STAGE KRO-NCRV · INTERNSHIP</p>
             <h1 class="exp-page-title">Lief <em>Gebaar</em></h1>
-            <p class="exp-page-subtitle">Social Reels · 2025</p>
+            <p class="exp-page-subtitle">Volunteer stories for Lief Gebaar · 2025</p>
         </div>
     </section>
-
 
     <section class="detail-about-section">
         <div class="container-wide">
             <div class="detail-about-layout">
 
-
                 <div class="detail-about-text">
                     <p class="detail-section-label">ABOUT THIS WORK</p>
                     <h2 class="detail-about-title">Volunteer stories for <em>Lief Gebaar</em></h2>
                     <p class="detail-about-body">
-                        <strong>Lief Gebaar</strong> is a campaign by KRO-NCRV that puts volunteer work in the
+                        <strong>Lief Gebaar</strong> is a yearly campaign by KRO-NCRV that puts volunteer work in the
                         spotlight. I edited a series of reels for their social media channels, each highlighting a
                         different volunteer and their unique story.
                     </p>
                     <p class="detail-about-body">
                         Below are the reels I edited for this project. Each video captures the personal motivation and
-                        impact of the volunteers, from Andrea and Hans on Radio Klassiek to Elif on NPO Blend and Bert
-                        on Radio 5.
+                        impact of the volunteers, from Andrea and Hans from NPO Radio Klassiek to Elif from NPO Blend
+                        and Bert from NPO Radio 5.
                     </p>
                     <p class="detail-about-body">
-                        Working on Lief Gebaar taught me how to tell authentic, human stories in a short format —
+                        Working on Lief Gebaar taught me how to tell authentic, human stories in a short format,
                         balancing emotion with clarity, and making each volunteer's personality shine through.
                     </p>
                     <div class="detail-about-tags">
@@ -181,7 +184,6 @@
                     </div>
                 </div>
 
-
                 <div class="detail-about-photo-col phone-col">
                     <div class="phone-video-container">
                         <video class="phone-video" autoplay loop muted playsinline controls>
@@ -190,14 +192,11 @@
                         </video>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-
     <div class="detail-divider"></div>
-
 
     <section class="phone-grid-section">
         <div class="container-wide">
@@ -213,9 +212,8 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <p class="phone-grid-caption">Lief Gebaar · Andrea (Radio Klassiek)</p>
+                    <p class="phone-grid-caption">Lief Gebaar · Hans (Radio Klassiek)</p>
                 </div>
-
 
                 <div class="phone-grid-item">
                     <div class="phone-video-container">
@@ -224,9 +222,8 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <p class="phone-grid-caption">Lief Gebaar · Hans (Radio Klassiek)</p>
+                    <p class="phone-grid-caption">Lief Gebaar · Elif (NPO Blend)</p>
                 </div>
-
 
                 <div class="phone-grid-item">
                     <div class="phone-video-container">
@@ -235,13 +232,12 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <p class="phone-grid-caption">Lief Gebaar · Elif (NPO Blend)</p>
+                    <p class="phone-grid-caption">Lief Gebaar · Bert (Radio 5)</p>
                 </div>
             </div>
 
         </div>
     </section>
-
 
     <section class="detail-back-section" style="padding-top: 0;">
         <div class="container-wide">
@@ -250,7 +246,6 @@
             </a>
         </div>
     </section>
-
 
     <footer class="footer" id="contact">
         <div class="container">
@@ -268,7 +263,6 @@
 
     <script src="../../../../Styles and Scripts/Scripts/script.js"></script>
     <script>
-        // Simple script to update year
         document.getElementById('currentYear').innerText = new Date().getFullYear();
     </script>
 </body>

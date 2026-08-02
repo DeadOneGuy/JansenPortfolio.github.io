@@ -48,15 +48,22 @@
 
         .phone-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
             margin-top: 40px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-items: center;
+            align-items: start;
         }
 
         .phone-grid-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            max-width: 280px;
         }
 
         .phone-grid-caption {
@@ -68,7 +75,6 @@
             letter-spacing: 1px;
             text-align: center;
         }
-
 
         .facebook-embed-wrapper {
             width: 100%;
@@ -103,12 +109,14 @@
         @media (max-width: 1300px) {
             .phone-grid {
                 grid-template-columns: repeat(3, 1fr);
+                max-width: 860px;
             }
         }
 
         @media (max-width: 900px) {
             .phone-grid {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 600px;
             }
 
             .detail-about-photo-col.phone-col {
@@ -120,14 +128,19 @@
         @media (max-width: 600px) {
             .phone-grid {
                 grid-template-columns: 1fr;
+                max-width: 320px;
                 gap: 32px;
+            }
+
+            .phone-grid-item {
+                max-width: 280px;
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 
 <body class="page-experience">
-
 
     <header class="header page-header">
         <div class="container-wide"
@@ -143,7 +156,6 @@
         </div>
     </header>
 
-
     <nav class="side-nav" id="sideNav">
         <ul>
             <li><a href="../../../MainPages/index-nl.html">Home</a></li>
@@ -155,7 +167,6 @@
         </ul>
     </nav>
     <div class="side-nav-overlay" id="sideNavOverlay"></div>
-
 
     <section class="exp-page-hero" style="margin-top: -30px;">
         <div class="container-wide">
@@ -172,11 +183,9 @@
         </div>
     </section>
 
-
     <section class="detail-about-section">
         <div class="container-wide">
             <div class="detail-about-layout">
-
 
                 <div class="detail-about-text">
                     <p class="detail-section-label">ABOUT THIS WORK</p>
@@ -203,7 +212,6 @@
                     </div>
                 </div>
 
-
                 <div class="detail-about-photo-col phone-col">
                     <div class="facebook-embed-wrapper">
                         <iframe
@@ -218,9 +226,7 @@
         </div>
     </section>
 
-
     <div class="detail-divider"></div>
-
 
     <section class="phone-grid-section">
         <div class="container-wide">
@@ -240,7 +246,6 @@
                     <p class="phone-grid-caption">Highlight 02</p>
                 </div>
 
-
                 <div class="phone-grid-item">
                     <div class="facebook-embed-wrapper">
                         <iframe
@@ -252,7 +257,6 @@
                     <p class="phone-grid-caption">Highlight 03</p>
                 </div>
 
-
                 <div class="phone-grid-item">
                     <div class="facebook-embed-wrapper">
                         <iframe
@@ -263,7 +267,6 @@
                     </div>
                     <p class="phone-grid-caption">Highlight 04</p>
                 </div>
-
 
                 <div class="phone-grid-item">
                     <div class="facebook-embed-wrapper">
@@ -281,7 +284,6 @@
         </div>
     </section>
 
-
     <section class="detail-back-section" style="padding-top: 0;">
         <div class="container-wide">
             <a href="../../../MainPages/projects-nl.html" class="detail-back-btn">
@@ -290,18 +292,17 @@
         </div>
     </section>
 
-
     <footer class="footer" id="contact">
         <div class="container">
             <p>&copy; <span id="currentYear"></span> <span id="footerLogo">Stijn Jansen</span>. All rights reserved.</p>
-            <a href="../../../../English/WorkAndProjects/KRO-NCRV - Dutch/Adres Onbekend/AdresOnbekend.html"
+            <a href="../../../../English/WorkAndProjects/KRO-NCRV - English/Adres Onbekend/AdresOnbekend.html"
                 class="footer-flag-link" aria-label="Nederlandse versie">
                 <svg class="flag-icon" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
-        <rect width="24" height="16" fill="#012169" />
-        <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="1.5" />
-        <path d="M0 8 L24 8 M12 0 L12 16" stroke="#FFFFFF" stroke-width="3" />
-        <path d="M0 8 L24 8 M12 0 L12 16" stroke="#C8102E" stroke-width="1" />
-    </svg>
+                    <rect width="24" height="16" fill="#012169" />
+                    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="1.5" />
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#FFFFFF" stroke-width="3" />
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#C8102E" stroke-width="1" />
+                </svg>
             </a>
         </div>
     </footer>
