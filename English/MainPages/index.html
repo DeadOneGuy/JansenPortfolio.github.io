@@ -71,44 +71,139 @@
     <section class="videos-section" id="projects">
         <div class="container-wide">
             <h2 class="section-heading-large" id="videosHeading">Featured Projects</h2>
-            <div class="videos-grid" id="videosGrid">
-                <!-- Change the href to the right page if you want to change the featured projects. -->
-                <a href="../WorkAndProjects/Bocavista - English/Socials Trimetal/SocialsTrimetal.html"
-                    class="video-card">
-                    <div class="video-thumbnail-wrapper">
-                        <!-- Change the prev1.png image to change the picture of the project (same folder, if not ../) -->
-                        <img src="../../Resources/indexPrev1.png" alt="Socials Trimetal thumbnail"
-                            class="video-thumbnail" loading="lazy">
-                    </div>
-                    <!-- Change the information about the project -->
-                    <h3 class="video-title">Socials Trimetal | Studio Bocavista</h3>
-                    <p class="video-role">Stijn Jansen - Editor &amp; Colourist</p>
-                </a>
-                <!-- Change the href to the right page if you want to change the featured projects. -->
-                <a href="../WorkAndProjects/KRO-NCRV - English/Adres Onbekend/AdresOnbekend.html" class="video-card">
-                    <div class="video-thumbnail-wrapper">
-                        <!-- Change the prev1.png image to change the picture of the project (same folder, if not ../) -->
-                        <img src="../../Resources/adresOnbekendHome.png" alt="Adres Onbekend thumbnail"
-                            class="video-thumbnail" loading="lazy">
-                    </div>
-                    <!-- Change the information about the project -->
-                    <h3 class="video-title">Adres Onbekend | KRO-NCRV</h3>
-                    <p class="video-role">Stijn Jansen - Editor &amp; Post-production</p>
-                </a>
-                <!-- Change the href to the right page if you want to change the featured projects. -->
-                <a href="../WorkAndProjects/Personal - English/Fotografie/Fotografie.html" class="video-card">
-                    <div class="video-thumbnail-wrapper">
-                        <!-- Change the prev1.png image to change the picture of the project (same folder, if not ../) -->
-                        <img src="../../Resources/indexPrev3.png" alt="Fotografie personal work thumbnail"
-                            class="video-thumbnail" loading="lazy">
-                    </div>
-                    <!-- Change the information about the project -->
-                    <h3 class="video-title">Fotografie | Personal Work</h3>
-                    <p class="video-role">Stijn Jansen - Editor &amp; Colourist</p>
-                </a>
+
+            <div class="featured-carousel" id="featuredCarousel">
+                <button class="carousel-arrow carousel-prev" id="carouselPrev"
+                    aria-label="Previous project">&#8592;</button>
+
+                <div class="featured-track" id="featuredTrack">
+
+                    <article class="featured-item" data-index="0">
+                        <div class="featured-video-wrap">
+                            <video class="featured-video" muted loop playsinline preload="metadata"
+                                poster="../../Resources/walkmanThumbnail.png">
+                                <source src="../../Resources/WalkmanReclame.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="featured-info">
+                            <h3 class="video-title">Walkman Commercial | School</h3>
+                            <p class="video-role">Stijn Jansen - Filming &amp; Editing</p>
+                            <div class="featured-cta">
+                                <a href="../WorkAndProjects/Schoolwork - English/Walkman Reclame/WalkmanReclame.html"
+                                    target="_blank">
+                                    <span class="featured-cta-text">Learn more</span>
+                                    <span class="featured-cta-arrow">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="featured-item" data-index="1">
+                        <div class="featured-video-wrap">
+                            <video class="featured-video" muted loop playsinline preload="metadata"
+                                poster="../../Resources/NieuweStudioThumbnail.png">
+                                <source src="../../Resources/vidIndex2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="featured-info">
+                            <h3 class="video-title">New Studio | Bocavista</h3>
+                            <p class="video-role">Stijn Jansen - Recording &amp; Post-production</p>
+                            <div class="featured-cta">
+                                <a href="../WorkAndProjects/Bocavista - English/Nieuwe Studio/NieuweStudio.html"
+                                    target="_blank">
+                                    <span class="featured-cta-text">Learn more</span>
+                                    <span class="featured-cta-arrow">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="featured-item" data-index="2">
+                        <div class="featured-video-wrap">
+                            <video class="featured-video" muted loop playsinline preload="metadata"
+                                poster="../../Resources/AnimatieThumbnail.png">
+                                <source src="../../Resources/vidIndex.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="featured-info">
+                            <h3 class="video-title">Animation Subsidy | Bocavista</h3>
+                            <p class="video-role">Stijn Jansen - Editor</p>
+                            <div class="featured-cta">
+                                <a href="../WorkAndProjects/Bocavista - English/Animatie Subsidies/AnimatieSubsidies.html"
+                                    target="_blank">
+                                    <span class="featured-cta-text">Learn more</span>
+                                    <span class="featured-cta-arrow">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="featured-item" data-index="3">
+                        <div class="featured-video-wrap">
+                            <video class="featured-video" muted loop playsinline preload="metadata"
+                                poster="../../Resources/SfeerimpressieThumbnail.png">
+                                <source src="../../Resources/Sfeerimpressie Aardgas bijeenkomst.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="featured-info">
+                            <h3 class="video-title">Gas Free | Bocavista</h3>
+                            <p class="video-role">Stijn Jansen - Editor &amp; Colourist</p>
+                            <div class="featured-cta">
+                                <a href="../WorkAndProjects/Bocavista - English/Sfeerimpressie Aardgas bijeenkomst/SfeerimpressieAardgasBijeenkomst.html"
+                                    target="_blank">
+                                    <span class="featured-cta-text">Learn more</span>
+                                    <span class="featured-cta-arrow">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="featured-item" data-index="4">
+                        <div class="featured-video-wrap">
+                            <video class="featured-video" muted loop playsinline preload="metadata"
+                                poster="../../Resources/MediaUitingThumbnail.png">
+                                <source src="../../Resources/MediaUiting.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="featured-info">
+                            <h3 class="video-title">Media Expression | School</h3>
+                            <p class="video-role">Stijn Jansen - Filming &amp; Editor</p>
+                            <div class="featured-cta">
+                                <a href="../WorkAndProjects/Schoolwork - English/Media Uiting/MediaUiting.html"
+                                    target="_blank">
+                                    <span class="featured-cta-text">Learn more</span>
+                                    <span class="featured-cta-arrow">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="featured-item" data-index="5">
+                        <div class="featured-video-wrap">
+                            <video class="featured-video" muted loop playsinline preload="metadata"
+                                poster="../../Resources/promotieThumbnail.png">
+                                <source src="../../Resources/Promotievideo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="featured-info">
+                            <h3 class="video-title">Promotional Video | School</h3>
+                            <p class="video-role">Stijn Jansen - Filming &amp; Editor</p>
+                            <div class="featured-cta">
+                                <a href="../WorkAndProjects/Schoolwork - English/Promotievideo/Promotievideo.html"
+                                    target="_blank">
+                                    <span class="featured-cta-text">Learn more</span>
+                                    <span class="featured-cta-arrow">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="carousel-arrow carousel-next" id="carouselNext"
+                    aria-label="Next project">&#8594;</button>
             </div>
         </div>
-    </section><br>
+    </section>
+    <br>
     <div class="diagonal-bar-top"></div>
     <section class="about-quick">
         <div class="container-wide about-quick-inner">
@@ -383,6 +478,219 @@
         </div>
     </footer>
     <script src="../../Styles and Scripts/Scripts/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('featuredTrack');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+
+            if (!track) return;
+
+            const items = Array.from(
+                track.querySelectorAll('.featured-item')
+            );
+
+            const total = items.length;
+
+            if (total < 2) return;
+
+            let current = 2;
+            let isAnimating = false;
+
+            const DURATION = 550;
+            function circularDistance(index, currentIndex) {
+                let diff = index - currentIndex;
+
+                if (diff > total / 2) {
+                    diff -= total;
+                }
+
+                if (diff < -total / 2) {
+                    diff += total;
+                }
+
+                return diff;
+            }
+            function setPosition(item, position, animate) {
+
+                const video = item.querySelector('.featured-video');
+                item.classList.remove(
+                    'is-center',
+                    'is-side-near',
+                    'is-side-far',
+                    'is-hidden'
+                );
+
+                if (Math.abs(position) > 2) {
+
+                    if (video) {
+                        video.pause();
+                    }
+
+                    item.classList.add('is-hidden');
+
+                    item.style.transition = 'none';
+                    item.style.opacity = '0';
+                    item.style.visibility = 'hidden';
+                    item.style.pointerEvents = 'none';
+                    item.style.zIndex = '0';
+                    item.style.display = 'none';
+
+                    return;
+                }
+
+                item.style.display = 'block';
+                item.style.visibility = 'visible';
+                item.style.pointerEvents = 'auto';
+
+                if (position === 0) {
+
+                    item.classList.add('is-center');
+
+                    item.style.zIndex = '5';
+                    item.style.opacity = '1';
+
+                    item.style.transition = animate
+                        ? `transform ${DURATION}ms cubic-bezier(0.25, 0.8, 0.25, 1),
+                   opacity ${DURATION}ms ease`
+                        : 'none';
+
+                    item.style.transform =
+                        'translate(-50%, -50%) translateX(0px) translateY(0px) scale(1)';
+
+                    if (video) {
+                        video.play().catch(() => { });
+                    }
+
+                    return;
+                }
+
+                if (Math.abs(position) === 1) {
+
+                    item.classList.add('is-side-near');
+
+                    item.style.zIndex = '3';
+                    item.style.opacity = '1';
+
+                    item.style.transition = animate
+                        ? `transform ${DURATION}ms cubic-bezier(0.25, 0.8, 0.25, 1),
+                   opacity ${DURATION}ms ease`
+                        : 'none';
+
+                    item.style.transform =
+                        `translate(-50%, -50%)
+                 translateX(calc(${position} * var(--carousel-near-offset)))
+                 translateY(60px)
+                 scale(var(--carousel-side-scale))`;
+
+                    if (video) {
+                        video.pause();
+                    }
+
+                    return;
+                }
+
+                if (Math.abs(position) === 2) {
+
+                    item.classList.add('is-side-far');
+
+                    item.style.zIndex = '2';
+                    item.style.opacity = '1';
+
+                    item.style.transition = animate
+                        ? `transform ${DURATION}ms cubic-bezier(0.25, 0.8, 0.25, 1),
+                   opacity ${DURATION}ms ease`
+                        : 'none';
+
+                    item.style.transform =
+                        `translate(-50%, -50%)
+                 translateX(calc(${position / 2} * var(--carousel-far-offset)))
+                 translateY(60px)
+                 scale(var(--carousel-side-scale))`;
+
+                    if (video) {
+                        video.pause();
+                    }
+
+                    return;
+                }
+            }
+
+            function updateCarousel(animate = true) {
+
+                items.forEach((item, index) => {
+
+                    const position =
+                        circularDistance(index, current);
+
+                    setPosition(
+                        item,
+                        position,
+                        animate
+                    );
+                });
+            }
+
+            function move(direction) {
+
+                if (isAnimating) return;
+
+                isAnimating = true;
+                current += direction;
+
+                if (current < 0) {
+                    current = total - 1;
+                }
+
+                if (current >= total) {
+                    current = 0;
+                }
+
+                updateCarousel(true);
+
+                setTimeout(() => {
+                    isAnimating = false;
+                }, DURATION);
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    move(-1);
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    move(1);
+                });
+            }
+
+            items.forEach((item, index) => {
+
+                item.addEventListener('click', (event) => {
+
+                    if (event.target.closest('a')) {
+                        return;
+                    }
+
+                    const position =
+                        circularDistance(index, current);
+
+                    if (position === 0) {
+                        return;
+                    }
+
+                    if (position < 0) {
+                        move(-1);
+                    } else {
+                        move(1);
+                    }
+                });
+            });
+
+            updateCarousel(false);
+        });
+    </script>
 </body>
 
 </html>
