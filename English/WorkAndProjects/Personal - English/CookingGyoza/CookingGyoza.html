@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking video style | Stijn Jansen</title>
+    <meta name="description" content="a page where I show off a video where I tried making a cooking video">
+    <link rel="icon" type="image/x-icon" href="../../../../Resources/indexIcon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../Styles and Scripts/Styles/styles.css">
+</head>
+<body class="page-experience">
+    <header class="header page-header">
+        <div class="container-wide" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+            <a href="../../../MainPages/index.html" class="logo" id="logoText">Stijn Jansen</a>
+            <a href="../../../MainPages/contact.html" class="btn-connect" id="headerCta"><span class="btn-connect-text">CONNECT</span><span class="btn-connect-icon">&#8594;</span></a>
+        </div>
+    </header>
+    <nav class="side-nav" id="sideNav"><ul>
+        <li><a href="../../../MainPages/index.html">Home</a></li>
+        <li><a href="../../../MainPages/projects.html">Projects</a></li>
+        <li><a href="../../../MainPages/experience.html">Experience and <br>Education</a></li>
+        <li><a href="../../Personal - English/Fotografie/Fotografie.html">Photography</a></li>
+        <li><a href="../../../MainPages/equipment.html">Equipment</a></li>
+        <li><a href="../../../MainPages/meetme.html">Meet Me</a></li>
+        <li><a href="../../../MainPages/contact.html">Contact</a></li>
+    </ul></nav>
+    <div class="side-nav-overlay" id="sideNavOverlay"></div>
+    <section class="exp-page-hero" style="margin-top: -30px;">
+        <div class="container-wide">
+            <p class="meetme-label">cookingvid</p>
+            <h1 class="exp-page-title">Cooking <em>video</em></h1>
+            <p class="exp-page-subtitle">Video style test - 2026</p>
+        </div>
+    </section>
+    <section class="detail-about-section">
+        <div class="container-wide">
+            <div class="detail-about-layout">
+                <div class="detail-about-text">
+                    <p class="detail-section-label">About this work</p>
+                    <h2 class="detail-about-title">A video style expriment: <em>cozy cooking video</em></h2>
+                    <p class="detail-about-body">One of my hobby videos. I wanted to experiment more with different video styles, so for this video I chose one of the dishes I was going to cook that evening and decided to make a cozy cooking video.</p>
+                    <p class="detail-about-body">The video was shot with the intention of using a voice-over, but I ended up liking the music and overall vibe so much that I decided to keep it simple and use creative titles integrated into the objects in the video instead. I also experimented with colour grading in DaVinci Resolve to give the video a vintage look.</p>
+                    <div class="detail-about-tags">
+                        <span>Editing</span>
+                        <span>Filming</span>
+                        <span>Colour grading</span>
+                        <span>Cooking a delicious meal</span>
+                    </div>
+                </div>
+                <div class="detail-about-photo-col">
+                    <div class="detail-about-photo-wrapper">
+                        <img src="../../../../Resources/Kitchen camera.jpeg" alt="My kitchen camera setup" class="detail-about-photo" loading="lazy">
+                        <div class="detail-about-photo-caption">My kitchen camera setup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="detail-divider"></div>
+    <section class="media-gallery-section">
+        <div class="container-wide">
+            <p class="media-section-label">Project media</p>
+            <h2 class="section-heading-large" style="margin-bottom: 50px;">Cooking video</h2>
+            <div class="media-featured">
+                <video class="media-featured-video" controls playsinline preload="metadata" aria-label="Featured project video">
+                    <source src="../../../../Resources/Cooking some Gyoza V2LQ.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    <section class="detail-back-section" style="padding-top: 0;">
+        <div class="container-wide">
+            <a href="../../../MainPages/projects.html" class="detail-back-btn">&#8592; Back to Projects</a>
+        </div>
+    </section>
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> <span id="footerLogo">Stijn Jansen</span>. All rights reserved.</p>
+            <a href="../../../../Dutch/WorkAndProjects/Personal - Dutch/CookingGyoza/CookingGyoza-nl.html" class="footer-flag-link" aria-label="Dutch version">
+                <svg class="flag-icon" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="5.33" fill="#AE1C28"/>
+                    <rect y="5.33" width="24" height="5.33" fill="#FFFFFF"/>
+                    <rect y="10.66" width="24" height="5.34" fill="#21468B"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+    <script src="../../../../Styles and Scripts/Scripts/script.js"></script>
+    <script>document.getElementById('currentYear').innerText = new Date().getFullYear();</script>
+</body>
+</html>

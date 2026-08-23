@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kook video style | Stijn Jansen</title>
+    <meta name="description" content="een pagina waar ik een video laat zien waar ik een kookvideo maakte">
+    <link rel="icon" type="image/x-icon" href="../../../../Resources/indexIcon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../Styles and Scripts/Styles/styles.css">
+</head>
+<body class="page-experience">
+    <header class="header page-header">
+        <div class="container-wide" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+            <a href="../../../MainPages/index-nl.html" class="logo" id="logoText">Stijn Jansen</a>
+            <a href="../../../MainPages/contact-nl.html" class="btn-connect" id="headerCta"><span class="btn-connect-text">CONNECT</span><span class="btn-connect-icon">&#8594;</span></a>
+        </div>
+    </header>
+    <nav class="side-nav" id="sideNav"><ul>
+        <li><a href="../../../MainPages/index-nl.html">Home</a></li>
+        <li><a href="../../../MainPages/projects-nl.html">Projecten</a></li>
+        <li><a href="../../../MainPages/experience-nl.html">Ervaring en <br>Opleiding</a></li>
+        <li><a href="../../Personal - Dutch/Fotografie/Fotografie-nl.html">Fotografie</a></li>
+        <li><a href="../../../MainPages/equipment-nl.html">Apparatuur</a></li>
+        <li><a href="../../../MainPages/meetme-nl.html">Over Mij</a></li>
+        <li><a href="../../../MainPages/contact-nl.html">Contact</a></li>
+    </ul></nav>
+    <div class="side-nav-overlay" id="sideNavOverlay"></div>
+    <section class="exp-page-hero" style="margin-top: -30px;">
+        <div class="container-wide">
+            <p class="meetme-label">cookingvid</p>
+            <h1 class="exp-page-title">Kook <em>video</em></h1>
+            <p class="exp-page-subtitle">Video stijl test - 2026</p>
+        </div>
+    </section>
+    <section class="detail-about-section">
+        <div class="container-wide">
+            <div class="detail-about-layout">
+                <div class="detail-about-text">
+                    <p class="detail-section-label">Over dit werk</p>
+                    <h2 class="detail-about-title">A video stijl expriment: <em>knusse kookvideo</em></h2>
+                    <p class="detail-about-body">Een van mijn hobby video's. Ik wilde graag meer experimenteren met verschillende video stijlen. Voor deze video pakte ik een van de gerechten die ik een avond ging koken en wilde ik een knusse kook video maken.</p>
+                    <p class="detail-about-body">De video is geschoten met het idee dat ik een voice over zou gebruiken, maar uiteindelijk vond ik de muziek en vibes zo chill dat ik bedacht het te houden bij creatieve titels die geintegreerd zijn in de objecten in de video. Ook heb ik een poging gedaan met colour grading in DaVinci Resolve om een vintage look te krijgen voor deze video.</p>
+                    <div class="detail-about-tags">
+                        <span>Editen</span>
+                        <span>Filmen</span>
+                        <span>Colour grading</span>
+                    </div>
+                </div>
+                <div class="detail-about-photo-col">
+                    <div class="detail-about-photo-wrapper">
+                        <img src="../../../../Resources/Kitchen camera.jpeg" alt="Mijn keuken camera setup" class="detail-about-photo" loading="lazy">
+                        <div class="detail-about-photo-caption">Mijn keuken camera setup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="detail-divider"></div>
+    <section class="media-gallery-section">
+        <div class="container-wide">
+            <p class="media-section-label">Project media</p>
+            <h2 class="section-heading-large" style="margin-bottom: 50px;">Kookvideo</h2>
+            <div class="media-featured">
+                <video class="media-featured-video" controls playsinline preload="metadata" aria-label="Featured project video">
+                    <source src="../../../../Resources/Cooking some Gyoza V2LQ.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    <section class="detail-back-section" style="padding-top: 0;">
+        <div class="container-wide">
+            <a href="../../../MainPages/projects-nl.html" class="detail-back-btn">&#8592; Terug naar Projecten</a>
+        </div>
+    </section>
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> <span id="footerLogo">Stijn Jansen</span>. All rights reserved.</p>
+            <a href="../../../../English/WorkAndProjects/Personal - English/CookingGyoza/CookingGyoza.html" class="footer-flag-link" aria-label="English version">
+                <svg class="flag-icon" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="16" fill="#012169"/>
+                    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="1.5"/>
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#FFFFFF" stroke-width="3"/>
+                    <path d="M0 8 L24 8 M12 0 L12 16" stroke="#C8102E" stroke-width="1"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+    <script src="../../../../Styles and Scripts/Scripts/script.js"></script>
+    <script>document.getElementById('currentYear').innerText = new Date().getFullYear();</script>
+</body>
+</html>
